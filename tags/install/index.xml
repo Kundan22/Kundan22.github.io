@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>install on Timer | Responsive Multipurpose Bootstrap Hugo Template</title>
-    <link>https://deskjokey.com/tags/install/</link>
+    <link>https://scriptjunction.com/tags/install/</link>
     <description>Recent content in install on Timer | Responsive Multipurpose Bootstrap Hugo Template</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 08 Jul 2018 12:22:40 +0600</lastBuildDate>
     
-	<atom:link href="https://deskjokey.com/tags/install/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://scriptjunction.com/tags/install/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How To Setup Timer Hugo</title>
-      <link>https://deskjokey.com/blog/installation/</link>
+      <link>https://scriptjunction.com/blog/installation/</link>
       <pubDate>Sun, 08 Jul 2018 12:22:40 +0600</pubDate>
       
-      <guid>https://deskjokey.com/blog/installation/</guid>
+      <guid>https://scriptjunction.com/blog/installation/</guid>
       <description>Install this template by following those simple steps: STEP-1 : Hugo installation Check this link below for install hugo on your computer. hugo install documentation
 STEP-2 : Create your project Hugo provides a new command to create a new website.
 hugo new site &amp;lt;new_project&amp;gt;  STEP-3 : Install the theme Run this command
