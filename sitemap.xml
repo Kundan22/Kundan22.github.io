@@ -3,6 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://scriptjunction.com/tags/general/</loc>
+    <lastmod>2019-07-15T12:29:40+06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://scriptjunction.com/blog/setting-up-developers-blog/</loc>
     <lastmod>2019-07-15T12:29:40+06:00</lastmod>
   </url>
@@ -14,13 +20,7 @@
   </url>
   
   <url>
-    <loc>https://scriptjunction.com/tags/inspiration/</loc>
-    <lastmod>2019-07-15T12:29:40+06:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://scriptjunction.com/tags/motivation/</loc>
+    <loc>https://scriptjunction.com/tags/technology/</loc>
     <lastmod>2019-07-15T12:29:40+06:00</lastmod>
     <priority>0</priority>
   </url>
@@ -46,18 +46,24 @@
   </url>
   
   <url>
+    <loc>https://scriptjunction.com/tags/life/</loc>
+    <lastmod>2018-07-15T12:29:40+06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://scriptjunction.com/tags/motivation/</loc>
+    <lastmod>2018-07-15T12:29:40+06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://scriptjunction.com/blog/building-an-online-audience/</loc>
     <lastmod>2018-07-15T12:27:38+06:00</lastmod>
   </url>
   
   <url>
-    <loc>https://scriptjunction.com/tags/internet/</loc>
-    <lastmod>2018-07-15T12:27:38+06:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://scriptjunction.com/tags/tech/</loc>
+    <loc>https://scriptjunction.com/tags/business/</loc>
     <lastmod>2018-07-15T12:27:38+06:00</lastmod>
     <priority>0</priority>
   </url>
@@ -65,12 +71,6 @@
   <url>
     <loc>https://scriptjunction.com/blog/space-shouldnt-be-the-final-frontier/</loc>
     <lastmod>2018-07-15T12:21:58+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://scriptjunction.com/tags/business/</loc>
-    <lastmod>2018-07-15T12:21:58+06:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -85,8 +85,8 @@
   </url>
   
   <url>
-    <loc>https://scriptjunction.com/gallery/</loc>
-    <lastmod>2018-07-14T16:19:08+06:00</lastmod>
+    <loc>https://scriptjunction.com/linux/</loc>
+    <lastmod>2018-07-14T17:09:20+06:00</lastmod>
   </url>
   
   <url>
@@ -95,50 +95,8 @@
   </url>
   
   <url>
-    <loc>https://scriptjunction.com/portfolio/caramel-bottle/</loc>
-    <lastmod>2018-07-12T16:59:54+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://scriptjunction.com/portfolio/</loc>
-    <lastmod>2018-07-12T16:59:54+06:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://scriptjunction.com/portfolio/shopping-bag-concept/</loc>
-    <lastmod>2018-07-12T16:58:55+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://scriptjunction.com/portfolio/makeup-element/</loc>
-    <lastmod>2018-07-12T16:57:54+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://scriptjunction.com/portfolio/table-design/</loc>
-    <lastmod>2018-07-12T16:56:54+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://scriptjunction.com/portfolio/bottle-mockup/</loc>
-    <lastmod>2018-07-12T16:54:54+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://scriptjunction.com/portfolio/dew-drop/</loc>
-    <lastmod>2018-07-12T16:53:54+06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://scriptjunction.com/blog/installation/</loc>
     <lastmod>2018-07-08T12:22:40+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://scriptjunction.com/tags/install/</loc>
-    <lastmod>2018-07-08T12:22:40+06:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
