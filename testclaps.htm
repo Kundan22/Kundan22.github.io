@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://unpkg.com/applause-button/dist/applause-button.css">
+        <script src="https://unpkg.com/applause-button/dist/applause-button.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <br/><br/><br/>
+
+        
+        <applause-button id="applause" color="#11807f" multiclap="true" url="scriptjunction.com"></applause-button>
+          <h1>Applause</h1>
+            <div class="count-container"></div>
+        <script type="text/javascript">
+            fetch('https://rkqvakocg4.execute-api.us-east-1.amazonaws.com/dev/get-cost-attribution')
+              .then(function (response) {
+                return response.json();
+              })
+              .then(function (consumers) {
+                document.getElementById("attribution-table").innerHTML =
+                  consumers.reduce((prev, curr) =>
+                    prev + "<tr><td>" + curr.consumer + "</td><td>$" + (curr.cost * 30).toFixed(2) + "</td></tr>", "");
+              });      
+        
+            const button = document.getElementById("applause");
+        
+            button.initialClapCount.then(function (count) {
+              console.log("initial clap count", count);
+            });
+        
+            button.addEventListener("clapped", function (event) {
+              console.log("button clapped", event.detail);
+            });     
+          </script>
+    </body>
+</html>
