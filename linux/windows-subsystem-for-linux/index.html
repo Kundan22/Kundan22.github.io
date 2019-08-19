@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     
-    <meta name="description" content="This is meta description">
+    <meta name="description" content="Airspace Hugo theme">
     <meta name="author" content="Themefisher">
     <meta name="generator" content="Hugo 0.56.3" />
     
     <!-- Mobile Specific Metas -->
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Setting up developers blog</title>
+    <title>Windows Subsystem for Linux</title>
     <link rel="icon" href="https://scriptjunction.com/images/favicon.ico">
 
     <!-- Twitter Bootstrs CSS -->
@@ -85,7 +85,7 @@
                                         Home &nbsp; >
                                     </a>
                                 </li>
-                                <li class="active list-inline-item">Setting up developers blog</li>
+                                <li class="active list-inline-item">Windows Subsystem for Linux</li>
                             </ol>
                         </div>
                     </div>
@@ -99,106 +99,49 @@
                 
             <div class="col-md-9">
                     <h1 class="blogpost-title">
-                            Setting up developers blog
+                            Windows Subsystem for Linux
                         </h1>
                 
-                <div class="post-img">
-                    <img class="img-fluid" alt="" src="https://scriptjunction.com/images/blog/post-3.jpg">
-                </div>
-                
                 <div class="post-content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas sit expedita, iusto repellendus cumque, officia architecto consequatur illo fuga eum sed ut autem eos voluptas. Nemo, a, rem! Atque quisquam aperiam eaque tenetur autem, soluta itaque omnis. Minus nesciunt, sint, animi illum quo ab voluptate esse delectus unde maiores iure, quasi a suscipit ipsam aliquid voluptatem. Perspiciatis eveniet, pariatur illum aut cum dolor neque consequatur error aliquid facilis in quasi temporibus assumenda tempore, doloremque autem saepe enim nihil. Voluptates asperiores ullam voluptate quas similique ratione quia hic, eum distinctio laboriosam, consectetur tempora voluptatibus optio natus cumque est necessitatibus dolore alias.</p>
+                    <p>As a developer, you always wanted to have Ubuntu running on your machine but then you either end up installing it as dual boot or as a Virtualbox after spending lot of time. What if you get ubuntu as inbuild application inside Windows10 itself.</p>
+
+<p>This article will show you how to install Ubuntu on your windows 10 using <a href="https://docs.microsoft.com/en-us/windows/wsl/faq" target="_blank">Windows subsystem for Linux</a>.</p>
+
+<p>It is advised to use <a href="https://devblogs.microsoft.com/commandline/announcing-wsl-2/" target="_blank">WSL 2</a> to have better performance and support for most of Linux features. WSL 2 is a new version of the architecture in WSL that changes how Linux distros interact with Windows. WSL 2 has the primary goals of increasing file system performance and adding full system call compatibility. Each Linux distro can run as a WSL 1, or a WSL 2 distro and can be switched between at any time. WSL 2 is a major overhaul of the underlying architecture and uses virtualization technology and a Linux kernel to enable its new features.</p>
+
+<p>Follow these pre-requisite steps to ensure smooth running of linux on WSL2 specially for running docker successfully on WSL2</p>
 
 <blockquote>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas alias ut totam labore, rerum soluta harum vitae pariatur, optio, ad dolore, nihil eligendi nesciunt repellat esse provident sapiente. Repellendus, minus!</p>
+<p>Step 1. Windows 10 (Build 18932 or higher). To check the OS Build version WinKey + R, run command &ldquo;winver&rdquo;</p>
+
+<p>Step 2. You can get the Build#18932 by registering for <a href="https://insider.windows.com/en-us/getting-started/" target="_blank">windows insider program</a> and then check latest windows updates on your machine</p>
+
+<p>Step 3. <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10" target="_blank">Enable WSL on your machine( Windows10 )</a> and then run following command as administrator on Powershell command to always use WSL2 on your machine</p>
 </blockquote>
 
-<pre><code>document.getElementById('lblShow');
+<pre><code>    PS&gt; wsl --set-default-version 2
 </code></pre>
 
-<p><a href="http://www.youtube.com/watch?v=6YbBmqUnoQM">Hugo Code</a></p>
+<blockquote>
+<p>Step 4. Now you are ready to install Linux distro on your machine. <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10" target="_blank">Install Ubuntu on Windows 10 WSL</a> using these instructions</p>
 
-<table>
-<thead>
-<tr>
-<th>First Header</th>
-<th>Second Header</th>
-</tr>
-</thead>
+<p>Step 5. You need to start the docker explicitly with</p>
+</blockquote>
 
-<tbody>
-<tr>
-<td>Content Cell</td>
-<td>Content Cell</td>
-</tr>
+<pre><code>    PS&gt; sudo /etc/init.d/docker start
+</code></pre>
 
-<tr>
-<td>Content Cell</td>
-<td>Content Cell</td>
-</tr>
-</tbody>
-</table>
+<blockquote>
+<p>Step 5. To verify everything is fine after installation; run the following command on Powershell. If it shows below output, that means Ubuntu-18.04 is running on WSL 2</p>
+</blockquote>
 
-<table>
-<thead>
-<tr>
-<th>Tables</th>
-<th align="center">Are</th>
-<th align="right">Cool</th>
-</tr>
-</thead>
+<pre><code>    PS&gt; wsl -l -v
+        NAME            STATE           VERSION
+      * Ubuntu-18.04    Running         2
+</code></pre>
 
-<tbody>
-<tr>
-<td>col 3 is</td>
-<td align="center">right-aligned</td>
-<td align="right">$1600</td>
-</tr>
-
-<tr>
-<td>col 2 is</td>
-<td align="center">centered</td>
-<td align="right">$12</td>
-</tr>
-
-<tr>
-<td>zebra stripes</td>
-<td align="center">are neat</td>
-<td align="right">$1</td>
-</tr>
-</tbody>
-</table>
-
-<ul>
-  <li>Lorem ipsum dolor sit amet</li>
-  <li>Consectetur adipiscing elit</li>
-  <li>Integer molestie lorem at massa</li>
-  <li>Facilisis in pretium nisl aliquet</li>
-  <li>Nulla volutpat aliquam velit
-    <ul>
-      <li>Phasellus iaculis neque</li>
-      <li>Purus sodales ultricies</li>
-      <li>Vestibulum laoreet porttitor sem</li>
-      <li>Ac tristique libero volutpat at</li>
-    </ul>
-  </li>
-  <li>Faucibus porta lacus fringilla vel</li>
-  <li>Aenean sit amet erat nunc</li>
-  <li>Eget porttitor lorem</li>
-</ul>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis expedita repellendus laboriosam aliquid. Neque doloribus ea, id reprehenderit alias saepe debitis eligendi molestias odit, nesciunt rem. Dolorem saepe, provident dolore nesciunt laudantium nostrum enim natus veritatis harum maxime et iure ratione, nulla. Minus excepturi commodi tempore voluptate. Blanditiis similique dolor asperiores ex excepturi perspiciatis, dolores id esse. Voluptate beatae nesciunt cum esse ratione officiis necessitatibus blanditiis ea, laboriosam fugit vero maxime? Voluptatum illo dolorum autem pariatur quisquam. Voluptates soluta culpa necessitatibus veritatis tempora incidunt doloribus placeat repellat et facilis eum sapiente fugit numquam aut, laboriosam aspernatur, esse, magnam excepturi repudiandae amet voluptas nulla quidem. Veritatis nisi consequuntur saepe qui quisquam dignissimos assumenda, iusto odio. Dignissimos reprehenderit esse iusto cupiditate nisi enim, animi similique itaque, perspiciatis error qui. Aperiam, architecto provident.</p>
-
-<p><img src="/images/blog/post-2.jpg" style="width:400px;height:300px;"/></p>
-
-<ol>
-<li>Ipsum dolor sit amet.</li>
-<li>Lorem sit amet.</li>
-<li>Lorem ipsum dolor sit amet.</li>
-<li>Lorem ipsum dolor amet.</li>
-</ol>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus nostrum consectetur voluptatibus, odio ea ab distinctio, nulla asperiores facere sequi dolorum molestiae magni sed velit officia rerum illo necessitatibus consequatur maiores magnam possimus voluptas suscipit praesentium iste! Praesentium, modi, illum. Sint quis eos expedita porro voluptatum reiciendis minus vitae atque deleniti eligendi nulla, dolorem adipisci, assumenda sunt modi suscipit inventore hic nostrum veniam, ea accusantium quisquam! Ipsum odio, ducimus magnam nam ad quaerat soluta, ab laudantium beatae eius iusto fugit blanditiis laboriosam cupiditate dolor aut nulla a quam dolores? Unde, sunt, explicabo sapiente quos reiciendis iste fuga atque esse voluptatem.</p>
+<p>If the above step show version 2 of WSL running on your machine that means you are all set. You can now launch Ubuntu from start menu.
+I&rsquo;ve installed docker on Ubuntu 18.04 version. It runs perfectly fine.</p>
 
                 </div>
             </div>
@@ -213,69 +156,120 @@
                         
                         
                         
-                            <a href="/tags/technology" class="btn btn-outline-info btn-sm" style="margin-bottom: 5px;">
-                                technology<span class="badge">(3)</span>
+                            <a href="/tags/linux" class="btn btn-outline-info btn-sm" style="margin-bottom: 5px;">
+                                linux<span class="badge">(1)</span>
                             </a>
                         
                         
                         
                         
-                            <a href="/tags/business" class="btn btn-outline-info btn-sm" style="margin-bottom: 5px;">
-                                business<span class="badge">(2)</span>
+                            <a href="/tags/ubuntu" class="btn btn-outline-info btn-sm" style="margin-bottom: 5px;">
+                                ubuntu<span class="badge">(1)</span>
                             </a>
                         
                         
                         
                         
-                            <a href="/tags/general" class="btn btn-outline-info btn-sm" style="margin-bottom: 5px;">
-                                general<span class="badge">(1)</span>
+                            <a href="/tags/ubuntu-on-windows" class="btn btn-outline-info btn-sm" style="margin-bottom: 5px;">
+                                ubuntu-on-windows<span class="badge">(1)</span>
                             </a>
                         
                         
                         
                         
-                            <a href="/tags/life" class="btn btn-outline-info btn-sm" style="margin-bottom: 5px;">
-                                life<span class="badge">(1)</span>
+                            <a href="/tags/wsl2" class="btn btn-outline-info btn-sm" style="margin-bottom: 5px;">
+                                wsl2<span class="badge">(1)</span>
                             </a>
                         
                         
-                        
-                        
-                            <a href="/tags/motivation" class="btn btn-outline-info btn-sm" style="margin-bottom: 5px;">
-                                motivation<span class="badge">(1)</span>
-                            </a>
-                        
-                        
-                        
-                        
-                            <a href="/tags/people" class="btn btn-outline-info btn-sm" style="margin-bottom: 5px;">
-                                people<span class="badge">(1)</span>
-                            </a>
-                        
-                        
-                        </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- Call To Action Section Start -->
-<section id="call-to-action">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="block">
-                    <h2 class="title wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">Subscribe Now</h1>
-                    <p class="wow fadeInDown" data-wow-delay=".5s" data-wow-duration="500ms">To get the latest updates on my blog posts directly into your mailbox just subscribe now by clicking below. Don't worry! you will not be spammed.</p>
-                    <a href="/contact" class="btn btn-default btn-contact wow fadeInDown" data-wow-delay=".7s" data-wow-duration="500ms">Subscribe Now</a>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                    <div  style="margin-bottom: 10px;" >
+                            
+                            
+                            
+                            
+                            
+                            
+                            <span class="btn btn-outline-info btn-sm" style="margin-bottom: 5px;">
+                            linux
+                            </span>
+                            
+                            
+                            
+                            
+                            <span class="btn btn-outline-info btn-sm" style="margin-bottom: 5px;">
+                            ubuntu
+                            </span>
+                            
+                            
+                            
+                            
+                            <span class="btn btn-outline-info btn-sm" style="margin-bottom: 5px;">
+                            ubuntu-on-windows
+                            </span>
+                            
+                            
+                            
+                            
+                            <span class="btn btn-outline-info btn-sm" style="margin-bottom: 5px;">
+                            wsl2
+                            </span>
+                            
+                            
+                    </div>
+                <hr/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+               
+                
+                <div id="remarkbox-div">
+                    <noscript>
+                        <iframe id=remarkbox-iframe src="https://my.remarkbox.com/embed?nojs=true"
+                            style="height:600px;width:100%;border:none!important" tabindex=0></iframe>
+                    </noscript>
+                </div>
+                <script src="https://my.remarkbox.com/static/js/iframe-resizer/iframeResizer.min.js"></script>
+                <script>
+                    var rb_owner_key = "1a23b6b7-c2ac-11e9-a0c9-040140774501";
+                    var thread_uri = window.location.href;
+                    var thread_title = window.document.title;
+                    var thread_fragment = window.location.hash;
+                    function create_remarkbox_iframe() {
+                        var src = "https://my.remarkbox.com/embed?rb_owner_key=" + rb_owner_key + "&thread_title=" + thread_title + "&thread_uri=" + thread_uri;
+                        var ifrm = document.createElement("iframe");
+                        ifrm.setAttribute("id", "remarkbox-iframe");
+                        ifrm.setAttribute("scrolling", "no");
+                        ifrm.setAttribute("src", src);
+                        ifrm.setAttribute("frameborder", "0");
+                        ifrm.setAttribute("tabindex", "0");
+                        ifrm.setAttribute("title", "Remarkbox");
+                        ifrm.style.width = "100%";
+                        document.getElementById("remarkbox-div").appendChild(ifrm);
+                    }
+                    create_remarkbox_iframe();
+                    iFrameResize(
+                        {
+                            checkOrigin: ["https://my.remarkbox.com"],
+                            inPageLinks: true,
+                            initCallback: function (e) { e.iFrameResizer.moveToAnchor(thread_fragment) }
+                        },
+                        document.getElementById("remarkbox-iframe")
+                    );
+                </script>
+            </div>
+            <div class="col-md-4">
 
+            </div>
         </div>
     </div>
 </section>
-<!-- Call To Action Section End -->
+
 
 
 <!-- Footer Section Start -->

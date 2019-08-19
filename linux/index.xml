@@ -11,5 +11,16 @@
 	<atom:link href="https://scriptjunction.com/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Windows Subsystem for Linux</title>
+      <link>https://scriptjunction.com/linux/windows-subsystem-for-linux/</link>
+      <pubDate>Sun, 18 Aug 2019 14:28:40 +0200</pubDate>
+      
+      <guid>https://scriptjunction.com/linux/windows-subsystem-for-linux/</guid>
+      <description>As a developer, you always wanted to have Ubuntu running on your machine but then you either end up installing it as dual boot or as a Virtualbox after spending lot of time. What if you get ubuntu as inbuild application inside Windows10 itself.
+This article will show you how to install Ubuntu on your windows 10 using Windows subsystem for Linux.
+It is advised to use WSL 2 to have better performance and support for most of Linux features.</description>
+    </item>
+    
   </channel>
 </rss>
