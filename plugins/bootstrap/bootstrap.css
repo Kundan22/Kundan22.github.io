@@ -530,13 +530,17 @@ kbd kbd {
 
 pre {
   display: block;
-  font-size: 87.5%;
-  color: #212529;
-  /* background-color: #f6f8fa; */
-  background-color: #d6e1ee;
   
+  /* color: #212529; */
+  /* background-color: #f6f8fa; */
+  /* background-color: #d6e1ee; */
+  
+  color: white;
+  /* background-color: #f6f8fa; */
+  background-color: #152a3f;
+
   border-radius: 5px;
-  font-size: 85%;
+  font-size: 14px;
   line-height: 1.45;
   overflow: auto;
   padding: 16px;
