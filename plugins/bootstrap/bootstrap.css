@@ -538,14 +538,11 @@ pre {
   color: white;
   /* background-color: #f6f8fa; */
   background-color: #183857;
-
   border-radius: 5px;
   font-size: 14px;
   line-height: 1.45;
   overflow: auto;
   padding: 16px;
-  
-
   margin-left: 10px;
   margin-right: 10px;
 }
