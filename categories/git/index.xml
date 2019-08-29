@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on </title>
+    <link>https://scriptjunction.com/categories/git/</link>
+    <description>Recent content in Git on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 18 Aug 2019 19:57:11 +0200</lastBuildDate>
+    
+	<atom:link href="https://scriptjunction.com/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Top 10 Git Commands that all you need to know</title>
+      <link>https://scriptjunction.com/devops/github/top-10-git-commands/</link>
+      <pubDate>Sun, 18 Aug 2019 19:57:11 +0200</pubDate>
+      
+      <guid>https://scriptjunction.com/devops/github/top-10-git-commands/</guid>
+      <description>Being one of the leader in open source community, Github is quite popular source control tool in developer community. If you are in open source development then you must be aware of Git commands. This post will help you to advance your knowledge about git commands. Here are some advance git commands that you need in your day to day work if you are using to github as your source control.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,7 +6,7 @@
     <description>Recent content in Categories on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Aug 2019 14:28:40 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 27 Aug 2019 14:28:40 +0200</lastBuildDate>
     
 	<atom:link href="https://scriptjunction.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,27 @@
     <item>
       <title>Linux</title>
       <link>https://scriptjunction.com/categories/linux/</link>
-      <pubDate>Sun, 18 Aug 2019 14:28:40 +0200</pubDate>
+      <pubDate>Tue, 27 Aug 2019 14:28:40 +0200</pubDate>
       
       <guid>https://scriptjunction.com/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>https://scriptjunction.com/categories/git/</link>
+      <pubDate>Sun, 18 Aug 2019 19:57:11 +0200</pubDate>
+      
+      <guid>https://scriptjunction.com/categories/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Github</title>
+      <link>https://scriptjunction.com/categories/github/</link>
+      <pubDate>Sun, 18 Aug 2019 19:57:11 +0200</pubDate>
+      
+      <guid>https://scriptjunction.com/categories/github/</guid>
       <description></description>
     </item>
     

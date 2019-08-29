@@ -6,7 +6,7 @@
     <description>Recent content in Linux on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Aug 2019 14:28:40 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 27 Aug 2019 14:28:40 +0200</lastBuildDate>
     
 	<atom:link href="https://scriptjunction.com/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Windows Subsystem for Linux</title>
       <link>https://scriptjunction.com/linux/windows-subsystem-for-linux/</link>
-      <pubDate>Sun, 18 Aug 2019 14:28:40 +0200</pubDate>
+      <pubDate>Tue, 27 Aug 2019 14:28:40 +0200</pubDate>
       
       <guid>https://scriptjunction.com/linux/windows-subsystem-for-linux/</guid>
       <description>As a developer, you always wanted to have Ubuntu running on your machine but then you either end up installing it as dual boot or as a Virtualbox after spending lot of time. What if you get ubuntu as inbuild application inside Windows10 itself.

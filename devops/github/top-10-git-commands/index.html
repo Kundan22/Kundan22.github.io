@@ -12,7 +12,7 @@
     <!-- Mobile Specific Metas -->
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Windows Subsystem for Linux</title>
+    <title>Top 10 Git Commands that all you need to know</title>
     <link rel="icon" href="https://scriptjunction.com/images/favicon.ico">
 
     <!-- Twitter Bootstrs CSS -->
@@ -95,7 +95,7 @@
                                         Home &nbsp; >
                                     </a>
                                 </li>
-                                <li class="active list-inline-item">Windows Subsystem for Linux</li>
+                                <li class="active list-inline-item">Top 10 Git Commands that all you need to know</li>
                             </ol>
                         </div>
                     </div>
@@ -108,58 +108,281 @@
         <div class="row">
                 
             <div class="col-md-9">
-                    <h1 class="blogpost-title">Windows Subsystem for Linux</h1>
+                    <h1 class="blogpost-title">Top 10 Git Commands that all you need to know</h1>
                         <div class="blog-meta">
                             
                             <span>&nbsp;&nbsp; by Kundan Ugale, </span>
                             
                         
-                            <span>Tuesday, Aug 27, 2019</span>
+                            <span>Sunday, Aug 18, 2019</span>
                         
                             
                         </div>
                         <br/>
                 
                 <div class="post-content">
-                    <p>As a developer, you always wanted to have Ubuntu running on your machine but then you either end up installing it as dual boot or as a Virtualbox after spending lot of time. What if you get ubuntu as inbuild application inside Windows10 itself.</p>
+                    <p>Being one of the leader in open source community, Github is quite popular source control tool
+in developer community. If you are in open source development then you must be aware of Git commands. This post will help you to advance your knowledge about git commands.
+ 
+Here are some advance git commands that you need in your day to day work if you
+are using to github as your source control.</p>
 
-<p>This article will show you how to install Ubuntu on your windows 10 using <a href="https://docs.microsoft.com/en-us/windows/wsl/faq" target="_blank">Windows subsystem for Linux</a>.</p>
+<p>Note: This post is for those who have some basic knowledge about source control system and git.</p>
 
-<p>It is advised to use <a href="https://devblogs.microsoft.com/commandline/announcing-wsl-2/" target="_blank">WSL 2</a> to have better performance and support for most of Linux features. WSL 2 is a new version of the architecture in WSL that changes how Linux distros interact with Windows. WSL 2 has the primary goals of increasing file system performance and adding full system call compatibility. Each Linux distro can run as a WSL 1, or a WSL 2 distro and can be switched between at any time. WSL 2 is a major overhaul of the underlying architecture and uses virtualization technology and a Linux kernel to enable its new features.</p>
-
-<p>Follow these pre-requisite steps to ensure smooth running of linux on WSL2 specially for running docker successfully on WSL2</p>
-
-<blockquote>
-<p>Step 1. Windows 10 (Build 18932 or higher). To check the OS Build version WinKey + R, run command &ldquo;winver&rdquo;</p>
-
-<p>Step 2. You can get the Build#18932 by registering for <a href="https://insider.windows.com/en-us/getting-started/" target="_blank">windows insider program</a> and then check latest windows updates on your machine</p>
-
-<p>Step 3. <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10" target="_blank">Enable WSL on your machine( Windows10 )</a> and then run following command as administrator on Powershell command to always use WSL2 on your machine</p>
-</blockquote>
-
-<pre><code>    PS&gt; wsl --set-default-version 2
-</code></pre>
+<p> </p>
 
 <blockquote>
-<p>Step 4. Now you are ready to install Linux distro on your machine. <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10" target="_blank">Install Ubuntu on Windows 10 WSL</a> using these instructions</p>
-
-<p>Step 5. You need to start the docker explicitly with</p>
+<p><strong>Command 1</strong>: When you switch to a new branch locally from master branch and
+  this branch does not exist on github yet</p>
 </blockquote>
 
-<pre><code>    PS&gt; sudo /etc/init.d/docker start
+<pre><code>$ git checkout -b feature-branch
+
+  Switched to a new branch 'feature-branch'
+
+$ git push --set-upstream origin feature-branch
 </code></pre>
+
+<p>above command will set the upstream and create a new branch with your changes.</p>
+
+<p> </p>
 
 <blockquote>
-<p>Step 5. To verify everything is fine after installation; run the following command on Powershell. If it shows below output, that means Ubuntu-18.04 is running on WSL 2</p>
+<p><strong>Command 2</strong>: When you have some un-committed changes on local repo but you want to get latest changes from remote branch</p>
 </blockquote>
 
-<pre><code>    PS&gt; wsl -l -v
-        NAME            STATE           VERSION
-      * Ubuntu-18.04    Running         2
+<p>if you try to do a git pull it will give you following error.</p>
+
+<pre><code>$ git pull --rebase
+
+error: cannot pull with rebase: Your index contains uncommitted changes.
+
+error: please commit or stash them.
 </code></pre>
 
-<p>If the above step show version 2 of WSL running on your machine that means you are all set. You can now launch Ubuntu from start menu.
-I&rsquo;ve installed docker on Ubuntu 18.04 version. It runs perfectly fine.</p>
+<p>this is because there is conflict between your remote and local branch. You can
+stash your change temporarily. After that you can do a <code>git pull --rebase</code> to
+sync the remote branch</p>
+
+<pre><code>$ git stash save
+
+Saved working directory and index state WIP on feature-branch: 929f7f8 Test commit
+</code></pre>
+
+<p>above command will save all your un-committed changes to shelve set which you
+can retrieve it later by using following command</p>
+
+<pre><code>$ git stash pop
+</code></pre>
+
+<p> </p>
+
+<blockquote>
+<p><strong>Command 3</strong>: When you have locally committed changes (not pushed to remote
+  branch) but you want to revert it to un-committed state then use git reset HEAD~</p>
+</blockquote>
+
+<p>This will revert your changes from committed to un-committed</p>
+
+<pre><code>$ git reset HEAD~
+
+Unstaged changes after reset:
+
+M       README.md
+
+$ git status
+
+On branch test-branch
+
+Your branch is up to date with 'origin/test-branch'.
+
+Changes not staged for commit:
+
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
+
+        modified:   README.md
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+</code></pre>
+
+<p> </p>
+
+<blockquote>
+<p><strong>Command 4</strong>: When you want to checkout to specific commit you need to mention a reference
+  point (HEAD) in your checkout command</p>
+</blockquote>
+
+<p>You can get the details about the commits with <code>git reflog</code> command. Every time the HEAD is modified there will be a new entry in the reflog.</p>
+
+<pre><code>$ git reflog
+
+3da8a89 (HEAD -&gt; test-branch, origin/test-branch) HEAD@{0}: reset: moving to HEAD~
+e9f8687 HEAD@{1}: commit: test reset HEAD~
+3da8a89 (HEAD -&gt; test-branch, origin/test-branch) HEAD@{2}: commit: test commit
+a40550d HEAD@{3}: pull git@github.com:cloud-solutions/templatedb-job-scripts.git test-branch: Fast-forward
+f6df8e0 (origin/master, origin/HEAD, master) HEAD@{4}: reset: moving to HEAD
+f6df8e0 (origin/master, origin/HEAD, master) HEAD@{5}: reset: moving to HEAD
+f6df8e0 (origin/master, origin/HEAD, master) HEAD@{6}: checkout: moving from master to test-branch
+f6df8e0 (origin/master, origin/HEAD, master) HEAD@{7}: commit: cleanup
+402e25c HEAD@{8}: clone: from git@github.com:cloud-solutions/templatedb-job-scripts.git
+</code></pre>
+
+<p>Now with above reference  you can checkout to any reference point by providing
+commit id.</p>
+
+<pre><code>$ git checkout HEAD@{8}
+
+Note: checking out 'HEAD@{8}'.
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b &lt;new-branch-name&gt;
+
+  HEAD is now at f6df8e0 cleanup
+</code></pre>
+
+<pre><code>$ git checkout -b &quot;Reset-head-to-f6df8e0&quot;
+
+Switched to a new branch 'Reset-head-to-f6df8e0'
+
+$ git push --set-upstream origin Reset-head-to-f6df8e0   
+
+All set: you created new branch with changes (git head) pointing to your desired branch f6df8e0
+</code></pre>
+
+<p> </p>
+
+<blockquote>
+<p><strong>Command 5</strong>: When you have messed up with all changes and now you want to get
+  latest changes from remote branch just do a hard reset with following command.</p>
+</blockquote>
+
+<pre><code>$ git reset --hard
+
+HEAD is now at 3da8a89 test reset \~HEAD
+</code></pre>
+
+<p> 
+Note: if you have any local changes then everything will be overwritten by
+remote changes.</p>
+
+<p> </p>
+
+<blockquote>
+<p><strong>Command 6</strong>: Git maintains its own log which you can view using <code>git log</code> command.</p>
+</blockquote>
+
+<p>if you want to see short notes about git log then use &lsquo;&ndash;oneline&rsquo; argument.
+ </p>
+
+<pre><code>$ git log --oneline
+da133f6 (HEAD -&gt; feature-branch) test reset ~HEAD
+929f7f8 (origin/feature-branch) Test commit
+3fbfdf9 (origin/master, origin/HEAD, master) Create README.md
+cc79ac3 To Check Auto Trigger
+fffe400 To Check Auto Trigger
+9f50c2d Initial Code check-in
+</code></pre>
+
+<p> </p>
+
+<blockquote>
+<p><strong>Command 7</strong>: Git tag - Git has the ability to tag specific points in a repository’s history as being important.</p>
+</blockquote>
+
+<p>tag functionality is used to mark release points (v1.0, v2.0 and so on). Lets check out various flavors of tag command.</p>
+
+<p>Git supports two types of tags: lightweight and annotated. A lightweight tag is very much like a branch that doesn’t change — it’s just a pointer to a specific commit. However annotated tags are stored as full objects in the Git database. It’s recommended that you create annotated tags</p>
+
+<p>Annotated Tags</p>
+
+<pre><code>$ git tag -a v1.0.3 -m &quot;my version 1.0.3&quot;
+$ git tag
+v1.0.2
+v1.0.1
+v1.0.0
+</code></pre>
+
+<p>Lightweight Tags: To create a lightweight tag, don’t supply any of the -a, -s, or -m options, just provide a tag name:</p>
+
+<pre><code>$ git tag v1.4-lw-test
+$ git tag
+v1.0.1
+v1.1.3
+v1.1.4
+v1.1.4-lw-test
+v1.1.5
+</code></pre>
+
+<p>if you run git show on the tag, you don’t see the extra tag information. The command just shows the commit:</p>
+
+<pre><code>$ git show v1.0.2
+commit 38f77ef7ca2116defabe8d5da11x61ba38a0d359 (tag: v1.0.2, tag: v1.0.1, origin/feature-branch)
+Author: Author22 &lt;testmail@test.com&gt;
+Date:   Wed Aug 28 20:30:39 2019 +0200
+
+    test version tagging
+</code></pre>
+
+<p> </p>
+
+<blockquote>
+<p><strong>Command 8</strong>: Git archive - This command is useful when you are working in not Windows environment</p>
+</blockquote>
+
+<p>You can easily archive your current branch to to zip file and keep it in the same directory.</p>
+
+<pre><code>$ git archive --format zip --output filename.zip feature-branch
+</code></pre>
+
+<p> </p>
+
+<blockquote>
+<p><strong>Command 9</strong>: To modify the commit message of your commit use commit message with amend attribute</p>
+</blockquote>
+
+<pre><code>$ git commit --amend -m &quot;Change your commit message&quot;
+</code></pre>
+
+<p> </p>
+
+<blockquote>
+<p><strong>Command 10</strong>: If you want to easily search any keyword through any committed tree use git grep command</p>
+</blockquote>
+
+<pre><code>$ git grep -p 'Console.Write' *.vb
+ConsoleAppCI/ConsoleAppCI/Module1.vb:  Console.WriteLine(&quot;Test the Continous Intigration&quot;)
+ConsoleAppCI/ConsoleAppCI/Module1.vb:  Console.WriteLine(&quot;New Module Added ValidateUser&quot;)
+ConsoleAppCI/ConsoleAppCI/Module1.vb:  Console.WriteLine(&quot;New Module Added ValidateUser&quot;)
+</code></pre>
+
+<p> </p>
+
+<blockquote>
+<p><strong>Command 11</strong>: specify the private SSH-key to use when executing shell command on Git</p>
+</blockquote>
+
+<p>Note: You need to set your ssh key to your git account before you try these commands. Use these <a href="https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account" target="_blank">instructions to setup your ssh key in github</a></p>
+
+<p>use following command to add ssh key while executing git command</p>
+
+<pre><code>ssh-agent bash -c 'ssh-add /path-to-sshkey/private-key; git clone git@github.com:user/project.git'
+</code></pre>
+
+<p>and if you want to add ssh key permanently to your session</p>
+
+<pre><code># start the ssh-agent in the background
+$ eval $(ssh-agent -s)
+&gt; Agent pid 59566
+
+$ ssh-add ~/.ssh/id_rsa
+</code></pre>
+
+<p><br><br><br></p>
 
                 </div>
             </div>
@@ -185,14 +408,12 @@ I&rsquo;ve installed docker on Ubuntu 18.04 version. It runs perfectly fine.</p>
                     <div class="b no-print w-100">
                         <span class="nowrap">
                             <a href="/tag/" title=""><i class="fas fa-tag fa-fw"></i></a>
-                            <a class="btn btn-outline-info btn-sm" href=/tags/linux/
-                                title="Index: Linux">Linux
-                            </a>&nbsp;<a class="btn btn-outline-info btn-sm" href=/tags/ubuntu/
-                                title="Index: Ubuntu">Ubuntu
-                            </a>&nbsp;<a class="btn btn-outline-info btn-sm" href=/tags/ubuntu-on-windows/
-                                title="Index: Ubuntu on Windows">Ubuntu on Windows
-                            </a>&nbsp;<a class="btn btn-outline-info btn-sm" href=/tags/wsl2/
-                                title="Index: WSL2">WSL2
+                            <a class="btn btn-outline-info btn-sm" href=/tags/devops/
+                                title="Index: DevOps">DevOps
+                            </a>&nbsp;<a class="btn btn-outline-info btn-sm" href=/tags/git/
+                                title="Index: Git">Git
+                            </a>&nbsp;<a class="btn btn-outline-info btn-sm" href=/tags/advance-git-commands/
+                                title="Index: advance Git commands">advance Git commands
                             </a>&nbsp;
                         </span>
                     </div>
@@ -203,7 +424,7 @@ I&rsquo;ve installed docker on Ubuntu 18.04 version. It runs perfectly fine.</p>
         <div class="row">
                 <div class="col-md-1" style="font-size: 14px;text-align:center;">
                 <br>
-                <applause-button id="applause" color="#11807f" url="https://scriptjunction.com/linux/windows-subsystem-for-linux/" style="width: 58px; height: 58px;" multiclap="false"></applause-button>
+                <applause-button id="applause" color="#11807f" url="https://scriptjunction.com/devops/github/top-10-git-commands/" style="width: 58px; height: 58px;" multiclap="false"></applause-button>
                 <nobr><span style="color:#11807f">Clap for me</span></nobr><br>
             </div>
             <div class="col-md-8" style="padding-left: 30px;">
