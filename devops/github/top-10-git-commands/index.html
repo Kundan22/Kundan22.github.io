@@ -122,17 +122,16 @@
                 
                 <div class="post-content">
                     <p>Being one of the leader in open source community, Github is quite popular source control tool
-in developer community. If you are in open source development then you must be aware of Git commands. This post will help you to advance your knowledge about git commands.
- 
-Here are some advance git commands that you need in your day to day work if you
-are using to github as your source control.</p>
+in developer community. If you are in open source development then you must be aware of Git commands. This post will help you to advance your knowledge about git commands.</p>
+
+<p>if you are using github as your source control then here are some practical scenarios where use can use these git commands in your day to day work.</p>
 
 <p>Note: This post is for those who have some basic knowledge about source control system and git.</p>
 
 <p> </p>
 
 <blockquote>
-<p><strong>Command 1</strong>: When you switch to a new branch locally from master branch and
+<p><strong>Scenario 1</strong>: When you switch to a new branch locally from master branch and
   this branch does not exist on github yet</p>
 </blockquote>
 
@@ -148,7 +147,7 @@ $ git push --set-upstream origin feature-branch
 <p> </p>
 
 <blockquote>
-<p><strong>Command 2</strong>: When you have some un-committed changes on local repo but you want to get latest changes from remote branch</p>
+<p><strong>Scenario 2</strong>: When you have some un-committed changes on local repo but you want to get latest changes from remote branch</p>
 </blockquote>
 
 <p>if you try to do a git pull it will give you following error.</p>
@@ -178,7 +177,7 @@ can retrieve it later by using following command</p>
 <p> </p>
 
 <blockquote>
-<p><strong>Command 3</strong>: When you have locally committed changes (not pushed to remote
+<p><strong>Scenario 3</strong>: When you have locally committed changes (not pushed to remote
   branch) but you want to revert it to un-committed state then use git reset HEAD~</p>
 </blockquote>
 
@@ -209,7 +208,7 @@ no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&q
 <p> </p>
 
 <blockquote>
-<p><strong>Command 4</strong>: When you want to checkout to specific commit you need to mention a reference
+<p><strong>Scenario 4</strong>: When you want to checkout to specific commit you need to mention a reference
   point (HEAD) in your checkout command</p>
 </blockquote>
 
@@ -257,7 +256,7 @@ All set: you created new branch with changes (git head) pointing to your desired
 <p> </p>
 
 <blockquote>
-<p><strong>Command 5</strong>: When you have messed up with all changes and now you want to get
+<p><strong>Scenario 5</strong>: When you have messed up with all changes and now you want to get
   latest changes from remote branch just do a hard reset with following command.</p>
 </blockquote>
 
@@ -273,7 +272,7 @@ remote changes.</p>
 <p> </p>
 
 <blockquote>
-<p><strong>Command 6</strong>: Git maintains its own log which you can view using <code>git log</code> command.</p>
+<p><strong>Scenario 6</strong>: Git maintains its own log which you can view using <code>git log</code> command.</p>
 </blockquote>
 
 <p>if you want to see short notes about git log then use &lsquo;&ndash;oneline&rsquo; argument.
@@ -291,7 +290,7 @@ fffe400 To Check Auto Trigger
 <p> </p>
 
 <blockquote>
-<p><strong>Command 7</strong>: Git tag - Git has the ability to tag specific points in a repository’s history as being important.</p>
+<p><strong>Scenario 7</strong>: Git tag - Git has the ability to tag specific points in a repository’s history as being important.</p>
 </blockquote>
 
 <p>tag functionality is used to mark release points (v1.0, v2.0 and so on). Lets check out various flavors of tag command.</p>
@@ -331,7 +330,7 @@ Date:   Wed Aug 28 20:30:39 2019 +0200
 <p> </p>
 
 <blockquote>
-<p><strong>Command 8</strong>: Git archive - This command is useful when you are working in not Windows environment</p>
+<p><strong>Scenario 8</strong>: Git archive - This command is useful when you are working in not Windows environment</p>
 </blockquote>
 
 <p>You can easily archive your current branch to to zip file and keep it in the same directory.</p>
@@ -342,7 +341,7 @@ Date:   Wed Aug 28 20:30:39 2019 +0200
 <p> </p>
 
 <blockquote>
-<p><strong>Command 9</strong>: To modify the commit message of your commit use commit message with amend attribute</p>
+<p><strong>Scenario 9</strong>: To modify the commit message of your commit use commit message with amend attribute</p>
 </blockquote>
 
 <pre><code>$ git commit --amend -m &quot;Change your commit message&quot;
@@ -351,11 +350,11 @@ Date:   Wed Aug 28 20:30:39 2019 +0200
 <p> </p>
 
 <blockquote>
-<p><strong>Command 10</strong>: If you want to easily search any keyword through any committed tree use git grep command</p>
+<p><strong>Scenario 10</strong>: If you want to easily search any keyword through any committed tree use git grep command</p>
 </blockquote>
 
 <pre><code>$ git grep -p 'Console.Write' *.vb
-ConsoleAppCI/ConsoleAppCI/Module1.vb:  Console.WriteLine(&quot;Test the Continous Intigration&quot;)
+ConsoleAppCI/ConsoleAppCI/Module1.vb:  Console.WriteLine(&quot;Test the Continuos Integration&quot;)
 ConsoleAppCI/ConsoleAppCI/Module1.vb:  Console.WriteLine(&quot;New Module Added ValidateUser&quot;)
 ConsoleAppCI/ConsoleAppCI/Module1.vb:  Console.WriteLine(&quot;New Module Added ValidateUser&quot;)
 </code></pre>
@@ -363,7 +362,7 @@ ConsoleAppCI/ConsoleAppCI/Module1.vb:  Console.WriteLine(&quot;New Module Added 
 <p> </p>
 
 <blockquote>
-<p><strong>Command 11</strong>: specify the private SSH-key to use when executing shell command on Git</p>
+<p><strong>Scenario 11</strong>: specify the private SSH-key to use when executing shell command on Git</p>
 </blockquote>
 
 <p>Note: You need to set your ssh key to your git account before you try these commands. Use these <a href="https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account" target="_blank">instructions to setup your ssh key in github</a></p>
