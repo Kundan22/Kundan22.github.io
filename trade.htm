@@ -135,11 +135,11 @@ function ClearValues(controlID)
 </head>
 <body>
     <h3>Intraday: Calculator</h3>
-    <table style="width: 40%;">
+    <table style="width: 35%;">
         <tr style="background-color:#9fb9ee;">
           <td>✘</td>
-          <td>Quantity</td>
-          <td>Buy Price</td>
+          <td>Qty</td>
+          <td>Buy @</td>
           <td>Sell@<input type="text" style="width: 20px;" id="tgtPercent" onchange="ChangeTargetIntraDay()" value="2">% </td>
           <td>SL <input type="text" style="width: 20px;" id="slPercent" onchange="ChangeTargetIntraDay()" value="2">%</td>
           <td>Brokerage</td>
@@ -148,8 +148,8 @@ function ClearValues(controlID)
         </tr>
         <tr>
           <td id="row1" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
-          <td><input type="text" style="width: 55px;" id="qty1" onchange="CalculateIntraday(this.id)"></td>
-          <td><input type="text" style="width: 65px;" id="Buy1" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 45px;" id="qty1" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 45px;" id="Buy1" onchange="CalculateIntraday(this.id)"></td>
           <td><input type="text" style="width: 65px;" id="Target1"></td>
           <td><input type="text" style="width: 65px;" id="SL1"></td>
           <td><input type="text" style="width: 65px;" id="Brokerage1"></td>
@@ -158,8 +158,8 @@ function ClearValues(controlID)
         </tr>
         <tr>
           <td id="row2" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
-          <td><input type="text" style="width: 55px;" id="qty2" onchange="CalculateIntraday(this.id)"></td>
-          <td><input type="text" style="width: 65px;" id="Buy2" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 45px;" id="qty2" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 45px;" id="Buy2" onchange="CalculateIntraday(this.id)"></td>
           <td><input type="text" style="width: 65px;" id="Target2"></td>
           <td><input type="text" style="width: 65px;" id="SL2"></td>
           <td><input type="text" style="width: 65px;" id="Brokerage2"></td>
@@ -168,8 +168,8 @@ function ClearValues(controlID)
         </tr>
         <tr>
           <td id="row3" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
-          <td><input type="text" style="width: 55px;" id="qty3" onchange="CalculateIntraday(this.id)"></td>
-          <td><input type="text" style="width: 65px;" id="Buy3" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 45px;" id="qty3" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 45px;" id="Buy3" onchange="CalculateIntraday(this.id)"></td>
           <td><input type="text" style="width: 65px;" id="Target3"></td>
           <td><input type="text" style="width: 65px;" id="SL3"></td>
           <td><input type="text" style="width: 65px;" id="Brokerage3"></td>
@@ -178,8 +178,8 @@ function ClearValues(controlID)
         </tr>
         <tr>
           <td id="row4" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
-          <td><input type="text" style="width: 55px;" id="qty4" onchange="CalculateIntraday(this.id)"></td>
-          <td><input type="text" style="width: 65px;" id="Buy4" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 45px;" id="qty4" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 45px;" id="Buy4" onchange="CalculateIntraday(this.id)"></td>
           <td><input type="text" style="width: 65px;" id="Target4"></td>
           <td><input type="text" style="width: 65px;" id="SL4"></td>
           <td><input type="text" style="width: 65px;" id="Brokerage4"></td>
@@ -209,11 +209,11 @@ function ClearValues(controlID)
     </table>
 
     <h3>Swing: Profit Calculator</h3>
-    <table style="width: 40%;">
+    <table style="width: 35%;">
       <tr style="background-color:#f09e89;">
         <td>✘</td>
-        <td>Quantity</td>
-        <td>Buy Price</td>
+        <td>Qty</td>
+        <td>Buy @</td>
         <td>Sell@<input type="text" style="width: 20px;" id="tgtPercentDelivery" onchange="ChangeTargetIntraDayDelivery()" value="10">% </td>
         <td>Sell@<input type="text" style="width: 20px;" id="slPercentDelivery" onchange="ChangeTargetIntraDayDelivery()" value="14">%</td>
         <td>Brokerage</td>
@@ -222,8 +222,8 @@ function ClearValues(controlID)
       </tr>
       <tr>
         <td id="row7" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
-        <td><input type="text" style="width: 55px;" id="qty7" onchange="CalculateDelivery(this.id)"></td>
-        <td><input type="text" style="width: 65px;" id="Buy7" onchange="CalculateDelivery(this.id)"></td>
+        <td><input type="text" style="width: 45px;" id="qty7" onchange="CalculateDelivery(this.id)"></td>
+        <td><input type="text" style="width: 45px;" id="Buy7" onchange="CalculateDelivery(this.id)"></td>
         <td><input type="text" style="width: 65px;" id="Target7"></td>
         <td><input type="text" style="width: 65px;" id="SL7"></td>
         <td><input type="text" style="width: 65px;" id="Brokerage7"></td>
@@ -232,8 +232,8 @@ function ClearValues(controlID)
       </tr>
       <tr>
         <td id="row8" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
-        <td><input type="text" style="width: 55px;" id="qty8" onchange="CalculateDelivery(this.id)"></td>
-        <td><input type="text" style="width: 65px;" id="Buy8" onchange="CalculateDelivery(this.id)"></td>
+        <td><input type="text" style="width: 45px;" id="qty8" onchange="CalculateDelivery(this.id)"></td>
+        <td><input type="text" style="width: 45px;" id="Buy8" onchange="CalculateDelivery(this.id)"></td>
         <td><input type="text" style="width: 65px;" id="Target8"></td>
         <td><input type="text" style="width: 65px;" id="SL8"></td>
         <td><input type="text" style="width: 65px;" id="Brokerage8"></td>
