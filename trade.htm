@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+
+
+<style>
+table {
+  font-family: 'Verdana';
+  border-collapse: collapse;
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 4px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
+
+
+</style>
+
+<script>
+
+function CalculateIntraday(controlID) {
+   debugger;
+   rowNumber = getRowNumber(controlID);
+   buyPrice = parseFloat(document.getElementById("Buy"+rowNumber).value)
+   purchaseQty =  parseFloat(document.getElementById("qty"+rowNumber).value)
+   targetPercent = document.getElementById("tgtPercent").value
+   stopLossPercent = document.getElementById("slPercent").value
+
+   target = buyPrice + (buyPrice * (targetPercent/100))
+   stopLoss = buyPrice - (buyPrice * (stopLossPercent/100))
+   sellPrice = target
+
+   document.getElementById("Target"+rowNumber).value = target.toFixed(2);
+   document.getElementById("SL"+rowNumber).value = stopLoss.toFixed(2);
+   
+   turnOver = (buyPrice + sellPrice) * purchaseQty
+   brokerage = Math.min(turnOver * 0.0003, 40)
+   STT = (sellPrice * purchaseQty) * 0.00025
+   tranCharges = turnOver * 0.0000345
+   sebiCharges = turnOver * 0.0000005
+   GST = (brokerage + tranCharges) * 0.18
+   stampDuty = turnOver * 0.000015
+
+   totalCharges = brokerage + STT + tranCharges + sebiCharges + GST + stampDuty;
+   document.getElementById("Brokerage"+rowNumber).value = totalCharges.toFixed(2)
+
+   breakEven = ((buyPrice * purchaseQty) + totalCharges)/purchaseQty
+   document.getElementById("Breakeven"+rowNumber).value = breakEven.toFixed(2)
+}
+
+function CalculateDelivery(controlID) {
+   debugger;
+   rowNumber = getRowNumber(controlID);
+   buyPrice = parseFloat(document.getElementById("Buy"+rowNumber).value)
+   purchaseQty =  parseFloat(document.getElementById("qty"+rowNumber).value)
+   targetPercent = document.getElementById("tgtPercentDelivery").value
+   stopLossPercent = document.getElementById("slPercentDelivery").value
+
+   target = buyPrice + (buyPrice * (targetPercent/100))
+   stopLoss = buyPrice - (buyPrice * (stopLossPercent/100))
+   sellPrice = target
+
+   document.getElementById("Target"+rowNumber).value = target.toFixed(2);
+   document.getElementById("SL"+rowNumber).value = stopLoss.toFixed(2);
+   
+   turnOver = (buyPrice + sellPrice) * purchaseQty
+   brokerage = 0
+   STT = turnOver * 0.001
+   tranCharges = turnOver * 0.0000345
+   sebiCharges = turnOver * 0.0000005
+   GST = (brokerage + tranCharges) * 0.18
+   stampDuty = buyPrice * purchaseQty * 0.00015
+
+   totalCharges = brokerage + STT + tranCharges + sebiCharges + GST + stampDuty;
+   document.getElementById("Brokerage"+rowNumber).value = totalCharges.toFixed(2)
+
+   breakEven = ((buyPrice * purchaseQty) + totalCharges)/purchaseQty
+   document.getElementById("Breakeven"+rowNumber).value = breakEven.toFixed(2)
+}
+
+function getRowNumber(ctrolId)
+{
+    //find the digit in the control id
+    var r = /\d+/;
+    //alert (ctrolId.match(r));
+    return ctrolId.match(r)
+}
+
+function ChangeTargetIntraDay()
+{
+    //debugger;
+    for (rowCount = 1; rowCount <= 6; rowCount++) {
+        if(document.getElementById("qty"+rowCount).value != "")
+           CalculateIntraday("qty"+rowCount);
+    }
+}
+
+function ChangeTargetIntraDayDelivery()
+{
+    //debugger;
+    for (rowCount = 7; rowCount <= 8; rowCount++) {
+        if(document.getElementById("qty"+rowCount).value != "")
+        CalculateDelivery("qty"+rowCount);
+    }
+}
+
+function ClearValues(controlID)
+{
+    rowNumber = getRowNumber(controlID);
+    document.getElementById("qty"+rowNumber).value = ""
+    document.getElementById("Buy"+rowNumber).value = ""
+    document.getElementById("Target"+rowNumber).value = ""
+    document.getElementById("SL"+rowNumber).value = ""
+    document.getElementById("Brokerage"+rowNumber).value = ""
+    document.getElementById("Breakeven"+rowNumber).value = ""
+    document.getElementById("script"+rowNumber).value = ""
+}
+
+</script>
+
+</head>
+<body>
+
+    <h3>Intraday: Calculator</h3>
+    <table style="width: 40%;">
+        <tr style="background-color:#9fb9ee;">
+          <td>✘</td>
+          <td>Quantity</td>
+          <td>Buy Price</td>
+          <td>Sell@<input type="text" style="width: 20px;" id="tgtPercent" onchange="ChangeTargetIntraDay()" value="2">% </td>
+          <td>SL <input type="text" style="width: 20px;" id="slPercent" onchange="ChangeTargetIntraDay()" value="2">%</td>
+          <td>Brokerage</td>
+          <td>Breakeven</td>
+          <td>Script</td>
+        </tr>
+        <tr>
+          <td id="row1" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
+          <td><input type="text" style="width: 65px;" id="qty1" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 65px;" id="Buy1" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 65px;" id="Target1"></td>
+          <td><input type="text" style="width: 65px;" id="SL1"></td>
+          <td><input type="text" style="width: 65px;" id="Brokerage1"></td>
+          <td><input type="text" style="width: 65px;" id="Breakeven1"></td>
+          <td><input type="text" style="width: 65px;" id="script1"></td>
+        </tr>
+        <tr>
+          <td id="row2" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
+          <td><input type="text" style="width: 65px;" id="qty2" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 65px;" id="Buy2" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 65px;" id="Target2"></td>
+          <td><input type="text" style="width: 65px;" id="SL2"></td>
+          <td><input type="text" style="width: 65px;" id="Brokerage2"></td>
+          <td><input type="text" style="width: 65px;" id="Breakeven2"></td>
+          <td><input type="text" style="width: 65px;" id="script2"></td>
+        </tr>
+        <tr>
+          <td id="row3" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
+          <td><input type="text" style="width: 65px;" id="qty3" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 65px;" id="Buy3" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 65px;" id="Target3"></td>
+          <td><input type="text" style="width: 65px;" id="SL3"></td>
+          <td><input type="text" style="width: 65px;" id="Brokerage3"></td>
+          <td><input type="text" style="width: 65px;" id="Breakeven3"></td>
+          <td><input type="text" style="width: 65px;" id="script3"></td>
+        </tr>
+        <tr>
+          <td id="row4" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
+          <td><input type="text" style="width: 65px;" id="qty4" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 65px;" id="Buy4" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 65px;" id="Target4"></td>
+          <td><input type="text" style="width: 65px;" id="SL4"></td>
+          <td><input type="text" style="width: 65px;" id="Brokerage4"></td>
+          <td><input type="text" style="width: 65px;" id="Breakeven4"></td>
+          <td><input type="text" style="width: 65px;" id="script4"></td>
+        </tr>
+        <tr>
+          <td id="row5" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
+          <td><input type="text" style="width: 65px;" id="qty5" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 65px;" id="Buy5" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 65px;" id="Target5"></td>
+          <td><input type="text" style="width: 65px;" id="SL5"></td>
+          <td><input type="text" style="width: 65px;" id="Brokerage5"></td>
+          <td><input type="text" style="width: 65px;" id="Breakeven5"></td>
+          <td><input type="text" style="width: 65px;" id="script5"></td>
+        </tr>
+        <tr>
+          <td id="row6" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
+          <td><input type="text" style="width: 65px;" id="qty6" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 65px;" id="Buy6" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 65px;" id="Target6"></td>
+          <td><input type="text" style="width: 65px;" id="SL6"></td>
+          <td><input type="text" style="width: 65px;" id="Brokerage6"></td>
+          <td><input type="text" style="width: 65px;" id="Breakeven6"></td>
+          <td><input type="text" style="width: 65px;" id="script6"></td>
+        </tr>
+    </table>
+    <br>
+
+    <h3>Swing: Profit Calculator</h3>
+    <table style="width: 40%;">
+      <tr style="background-color:#f09e89;">
+        <td>✘</td>
+        <td>Quantity</td>
+        <td>Buy Price</td>
+        <td>Sell@<input type="text" style="width: 20px;" id="tgtPercentDelivery" onchange="ChangeTargetIntraDayDelivery()" value="10">% </td>
+        <td>Sell@<input type="text" style="width: 20px;" id="slPercentDelivery" onchange="ChangeTargetIntraDayDelivery()" value="14">%</td>
+        <td>Brokerage</td>
+        <td>Breakeven</td>
+        <td>Script</td>
+      </tr>
+      <tr>
+        <td id="row7" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
+        <td><input type="text" style="width: 65px;" id="qty7" onchange="CalculateDelivery(this.id)"></td>
+        <td><input type="text" style="width: 65px;" id="Buy7" onchange="CalculateDelivery(this.id)"></td>
+        <td><input type="text" style="width: 65px;" id="Target7"></td>
+        <td><input type="text" style="width: 65px;" id="SL7"></td>
+        <td><input type="text" style="width: 65px;" id="Brokerage7"></td>
+        <td><input type="text" style="width: 65px;" id="Breakeven7"></td>
+        <td><input type="text" style="width: 65px;" id="script7"></td>
+      </tr>
+      <tr>
+        <td id="row8" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
+        <td><input type="text" style="width: 65px;" id="qty8" onchange="CalculateDelivery(this.id)"></td>
+        <td><input type="text" style="width: 65px;" id="Buy8" onchange="CalculateDelivery(this.id)"></td>
+        <td><input type="text" style="width: 65px;" id="Target8"></td>
+        <td><input type="text" style="width: 65px;" id="SL8"></td>
+        <td><input type="text" style="width: 65px;" id="Brokerage8"></td>
+        <td><input type="text" style="width: 65px;" id="Breakeven8"></td>
+        <td><input type="text" style="width: 65px;" id="script8"></td>
+      </tr>
+    </table>
+
+<br/>
+
+
+</body>
+</html>
