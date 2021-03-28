@@ -23,6 +23,9 @@ tr:nth-child(even) {
 }
 
 
+tr:nth-child(odd) {
+  background-color: #dddddd;
+}
 
 
 </style>
@@ -100,7 +103,7 @@ function getRowNumber(ctrolId)
 function ChangeTargetIntraDay()
 {
     //debugger;
-    for (rowCount = 1; rowCount <= 6; rowCount++) {
+    for (rowCount = 1; rowCount <= 4; rowCount++) {
         if(document.getElementById("qty"+rowCount).value != "")
            CalculateIntraday("qty"+rowCount);
     }
@@ -131,7 +134,6 @@ function ClearValues(controlID)
 
 </head>
 <body>
-
     <h3>Intraday: Calculator</h3>
     <table style="width: 40%;">
         <tr style="background-color:#9fb9ee;">
@@ -184,7 +186,7 @@ function ClearValues(controlID)
           <td><input type="text" style="width: 65px;" id="Breakeven4"></td>
           <td><input type="text" style="width: 65px;" id="script4"></td>
         </tr>
-        <tr>
+        <!-- <tr>
           <td id="row5" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
           <td><input type="text" style="width: 65px;" id="qty5" onchange="CalculateIntraday(this.id)"></td>
           <td><input type="text" style="width: 65px;" id="Buy5" onchange="CalculateIntraday(this.id)"></td>
@@ -203,9 +205,8 @@ function ClearValues(controlID)
           <td><input type="text" style="width: 65px;" id="Brokerage6"></td>
           <td><input type="text" style="width: 65px;" id="Breakeven6"></td>
           <td><input type="text" style="width: 65px;" id="script6"></td>
-        </tr>
+        </tr> -->
     </table>
-    <br>
 
     <h3>Swing: Profit Calculator</h3>
     <table style="width: 40%;">
