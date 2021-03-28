@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: 'Verdana';
+  border-collapse: collapse;
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 6px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
+
+
+</style>
+
+<script>
+
+function Calculate(controlID) {
+   debugger;
+   rowNumber = getRowNumber(controlID);
+   buyPrice = parseFloat(document.getElementById("Buy"+rowNumber).value)
+   purchaseQty =  parseFloat(document.getElementById("qty"+rowNumber).value)
+   targetPercent = document.getElementById("tgtPercent").value
+   stopLossPercent = document.getElementById("slPercent").value
+
+   target = buyPrice + (buyPrice * (targetPercent/100))
+   stopLoss = buyPrice - (buyPrice * (stopLossPercent/100))
+   sellPrice = target
+
+   document.getElementById("Target"+rowNumber).value = target.toFixed(2);
+   document.getElementById("SL"+rowNumber).value = stopLoss.toFixed(2);
+   
+   turnOver = (buyPrice + sellPrice) * purchaseQty
+   brokerage = Math.min(turnOver * 0.0003, 40)
+   STT = (sellPrice * purchaseQty) * 0.00025
+   tranCharges = turnOver * 0.0000345
+   sebiCharges = turnOver * 0.0000005
+   GST = (brokerage + tranCharges) * 0.18
+   stampDuty = turnOver * 0.000015
+
+   totalCharges = brokerage + STT + tranCharges + sebiCharges + GST + stampDuty;
+   document.getElementById("Brokerage"+rowNumber).value = totalCharges.toFixed(2)
+
+   breakEven = ((buyPrice * purchaseQty) + totalCharges)/purchaseQty
+   document.getElementById("Breakeven"+rowNumber).value = breakEven.toFixed(2)
+}
+
+function getRowNumber(ctrolId)
+{
+    //find the digit in the control id
+    var r = /\d+/;
+    //alert (ctrolId.match(r));
+    return ctrolId.match(r)
+}
+
+function ChangeTarget()
+{
+    debugger;
+    for (rowCount = 1; rowCount <= 6; rowCount++) {
+        if(document.getElementById("qty"+rowCount).value != "")
+           Calculate("qty"+rowCount);
+    }
+}
+
+</script>
+
+</head>
+<body>
+
+    <h3>Intraday: Target, Stop Loss and Brokerage</h3>
+    <table style="width: 600px;">
+        <tr style="background-color:#9fb9ee;">
+          <td>Script</td>
+          <td>Quantity</td>
+          <td>Buy Price</td>
+          <td>Sell@<input type="text" style="width: 20px;" id="tgtPercent" onchange="ChangeTarget()" value="2">% </td>
+          <td>SL <input type="text" style="width: 20px;" id="slPercent" onchange="ChangeTarget()" value="2">%</td>
+          <td>Brokerage</td>
+          <td>Breakeven</td>
+        </tr>
+        <tr>
+          <td><input type="text" style="width: 60px;" id="script1"></td>
+          <td><input type="text" style="width: 60px;" id="qty1" onchange="Calculate(this.id)"></td>
+          <td><input type="text" style="width: 60px;" id="Buy1" onchange="Calculate(this.id)"></td>
+          <td><input type="text" style="width: 60px;" id="Target1"></td>
+          <td><input type="text" style="width: 60px;" id="SL1"></td>
+          <td><input type="text" style="width: 60px;" id="Brokerage1"></td>
+          <td><input type="text" style="width: 60px;" id="Breakeven1"></td>
+        </tr>
+        <tr>
+          <td><input type="text" style="width: 60px;" id="script2"></td>
+          <td><input type="text" style="width: 60px;" id="qty2" onchange="Calculate(this.id)"></td>
+          <td><input type="text" style="width: 60px;" id="Buy2" onchange="Calculate(this.id)"></td>
+          <td><input type="text" style="width: 60px;" id="Target2"></td>
+          <td><input type="text" style="width: 60px;" id="SL2"></td>
+          <td><input type="text" style="width: 60px;" id="Brokerage2"></td>
+          <td><input type="text" style="width: 60px;" id="Breakeven2"></td>
+        </tr>
+        <tr>
+          <td><input type="text" style="width: 60px;" id="script3"></td>
+          <td><input type="text" style="width: 60px;" id="qty3" onchange="Calculate(this.id)"></td>
+          <td><input type="text" style="width: 60px;" id="Buy3" onchange="Calculate(this.id)"></td>
+          <td><input type="text" style="width: 60px;" id="Target3"></td>
+          <td><input type="text" style="width: 60px;" id="SL3"></td>
+          <td><input type="text" style="width: 60px;" id="Brokerage3"></td>
+          <td><input type="text" style="width: 60px;" id="Breakeven3"></td>
+        </tr>
+        <tr>
+          <td><input type="text" style="width: 60px;" id="script4"></td>
+          <td><input type="text" style="width: 60px;" id="qty4" onchange="Calculate(this.id)"></td>
+          <td><input type="text" style="width: 60px;" id="Buy4" onchange="Calculate(this.id)"></td>
+          <td><input type="text" style="width: 60px;" id="Target4"></td>
+          <td><input type="text" style="width: 60px;" id="SL4"></td>
+          <td><input type="text" style="width: 60px;" id="Brokerage4"></td>
+          <td><input type="text" style="width: 60px;" id="Breakeven4"></td>
+        </tr>
+        <tr>
+          <td><input type="text" style="width: 60px;" id="script5"></td>
+          <td><input type="text" style="width: 60px;" id="qty5" onchange="Calculate(this.id)"></td>
+          <td><input type="text" style="width: 60px;" id="Buy5" onchange="Calculate(this.id)"></td>
+          <td><input type="text" style="width: 60px;" id="Target5"></td>
+          <td><input type="text" style="width: 60px;" id="SL5"></td>
+          <td><input type="text" style="width: 60px;" id="Brokerage5"></td>
+          <td><input type="text" style="width: 60px;" id="Breakeven5"></td>
+        </tr>
+        <tr>
+          <td><input type="text" style="width: 60px;" id="script6"></td>
+          <td><input type="text" style="width: 60px;" id="qty6" onchange="Calculate(this.id)"></td>
+          <td><input type="text" style="width: 60px;" id="Buy6" onchange="Calculate(this.id)"></td>
+          <td><input type="text" style="width: 60px;" id="Target6"></td>
+          <td><input type="text" style="width: 60px;" id="SL6"></td>
+          <td><input type="text" style="width: 60px;" id="Brokerage6"></td>
+          <td><input type="text" style="width: 60px;" id="Breakeven6"></td>
+        </tr>
+    </table>
+
+<br/>
+
+
+</body>
+</html>
