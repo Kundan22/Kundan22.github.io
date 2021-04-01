@@ -14,8 +14,15 @@ table {
 
 td, th {
   border: 1px solid #dddddd;
-  text-align: left;
-  padding: 4px;
+  text-align: right;
+  padding: 1px;
+}
+
+input{
+  text-align: right;
+  font-size: 16px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 tr:nth-child(even) {
@@ -35,6 +42,8 @@ tr:nth-child(odd) {
 function CalculateIntraday(controlID) {
    debugger;
    rowNumber = getRowNumber(controlID);
+   document.getElementById("Buy"+rowNumber).value = document.getElementById("Buy"+rowNumber).value.replace(",","")
+
    buyPrice = parseFloat(document.getElementById("Buy"+rowNumber).value)
    purchaseQty =  parseFloat(document.getElementById("qty"+rowNumber).value)
    targetPercent = document.getElementById("tgtPercent").value
@@ -65,6 +74,8 @@ function CalculateIntraday(controlID) {
 function CalculateDelivery(controlID) {
    debugger;
    rowNumber = getRowNumber(controlID);
+   document.getElementById("Buy"+rowNumber).value = document.getElementById("Buy"+rowNumber).value.replace(",","")
+
    buyPrice = parseFloat(document.getElementById("Buy"+rowNumber).value)
    purchaseQty =  parseFloat(document.getElementById("qty"+rowNumber).value)
    targetPercent = document.getElementById("tgtPercentDelivery").value
@@ -75,7 +86,7 @@ function CalculateDelivery(controlID) {
    sellPrice = target
 
    document.getElementById("Target"+rowNumber).value = target.toFixed(2);
-   document.getElementById("SL"+rowNumber).value = stopLoss.toFixed(2);
+   document.getElementById("Profit"+rowNumber).value = (target - buyPrice) * purchaseQty
    
    turnOver = (buyPrice + sellPrice) * purchaseQty
    brokerage = 0
@@ -135,110 +146,111 @@ function ClearValues(controlID)
 </head>
 <body>
     <h3>Intraday: Calculator</h3>
-    <table style="width: 35%;">
+    <table style="width: 32%;">
         <tr style="background-color:#9fb9ee;">
           <td>✘</td>
           <td>Qty</td>
-          <td>Buy @</td>
-          <td>Sell@<input type="text" style="width: 20px;" id="tgtPercent" onchange="ChangeTargetIntraDay()" value="2">% </td>
-          <td>SL <input type="text" style="width: 20px;" id="slPercent" onchange="ChangeTargetIntraDay()" value="2">%</td>
+          <td>Price</td>
+          <td>Sell <input type="text" style="width: 18px;font-size: 14px;" id="tgtPercent" onchange="ChangeTargetIntraDay()" value="2">% </td>
+          <td>SL <input type="text" style="width: 18px;font-size: 14px;" id="slPercent" onchange="ChangeTargetIntraDay()" value="1">%</td>
           <td>Brokerage</td>
           <td>Breakeven</td>
-          <td>Script</td>
+          <td style="text-align: center;">Script</td>
         </tr>
         <tr>
           <td id="row1" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
-          <td><input type="text" style="width: 45px;" id="qty1" onchange="CalculateIntraday(this.id)"></td>
-          <td><input type="text" style="width: 45px;" id="Buy1" onchange="CalculateIntraday(this.id)"></td>
-          <td><input type="text" style="width: 65px;" id="Target1"></td>
-          <td><input type="text" style="width: 65px;" id="SL1"></td>
-          <td><input type="text" style="width: 65px;" id="Brokerage1"></td>
-          <td><input type="text" style="width: 65px;" id="Breakeven1"></td>
-          <td><input type="text" style="width: 65px;" id="script1"></td>
+          <td><input type="text" style="width: 35px;padding: 4px;" id="qty1" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 55px;padding: 4px;" id="Buy1" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="Target1"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="SL1"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="Brokerage1"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="Breakeven1"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="script1"></td>
         </tr>
         <tr>
           <td id="row2" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
-          <td><input type="text" style="width: 45px;" id="qty2" onchange="CalculateIntraday(this.id)"></td>
-          <td><input type="text" style="width: 45px;" id="Buy2" onchange="CalculateIntraday(this.id)"></td>
-          <td><input type="text" style="width: 65px;" id="Target2"></td>
-          <td><input type="text" style="width: 65px;" id="SL2"></td>
-          <td><input type="text" style="width: 65px;" id="Brokerage2"></td>
-          <td><input type="text" style="width: 65px;" id="Breakeven2"></td>
-          <td><input type="text" style="width: 65px;" id="script2"></td>
+          <td><input type="text" style="width: 35px;padding: 4px;" id="qty2" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 55px;padding: 4px;" id="Buy2" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="Target2"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="SL2"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="Brokerage2"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="Breakeven2"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="script2"></td>
         </tr>
         <tr>
           <td id="row3" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
-          <td><input type="text" style="width: 45px;" id="qty3" onchange="CalculateIntraday(this.id)"></td>
-          <td><input type="text" style="width: 45px;" id="Buy3" onchange="CalculateIntraday(this.id)"></td>
-          <td><input type="text" style="width: 65px;" id="Target3"></td>
-          <td><input type="text" style="width: 65px;" id="SL3"></td>
-          <td><input type="text" style="width: 65px;" id="Brokerage3"></td>
-          <td><input type="text" style="width: 65px;" id="Breakeven3"></td>
-          <td><input type="text" style="width: 65px;" id="script3"></td>
+          <td><input type="text" style="width: 35px;padding: 4px;" id="qty3" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 55px;padding: 4px;" id="Buy3" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="Target3"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="SL3"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="Brokerage3"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="Breakeven3"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="script3"></td>
         </tr>
         <tr>
           <td id="row4" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
-          <td><input type="text" style="width: 45px;" id="qty4" onchange="CalculateIntraday(this.id)"></td>
-          <td><input type="text" style="width: 45px;" id="Buy4" onchange="CalculateIntraday(this.id)"></td>
-          <td><input type="text" style="width: 65px;" id="Target4"></td>
-          <td><input type="text" style="width: 65px;" id="SL4"></td>
-          <td><input type="text" style="width: 65px;" id="Brokerage4"></td>
-          <td><input type="text" style="width: 65px;" id="Breakeven4"></td>
-          <td><input type="text" style="width: 65px;" id="script4"></td>
+          <td><input type="text" style="width: 35px;padding: 4px;" id="qty4" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 55px;padding: 4px;" id="Buy4" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="Target4"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="SL4"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="Brokerage4"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="Breakeven4"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="script4"></td>
         </tr>
         <!-- <tr>
           <td id="row5" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
-          <td><input type="text" style="width: 65px;" id="qty5" onchange="CalculateIntraday(this.id)"></td>
-          <td><input type="text" style="width: 65px;" id="Buy5" onchange="CalculateIntraday(this.id)"></td>
-          <td><input type="text" style="width: 65px;" id="Target5"></td>
-          <td><input type="text" style="width: 65px;" id="SL5"></td>
-          <td><input type="text" style="width: 65px;" id="Brokerage5"></td>
-          <td><input type="text" style="width: 65px;" id="Breakeven5"></td>
-          <td><input type="text" style="width: 65px;" id="script5"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="qty5" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="Buy5" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="Target5"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="SL5"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="Brokerage5"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="Breakeven5"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="script5"></td>
         </tr>
         <tr>
           <td id="row6" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
-          <td><input type="text" style="width: 65px;" id="qty6" onchange="CalculateIntraday(this.id)"></td>
-          <td><input type="text" style="width: 65px;" id="Buy6" onchange="CalculateIntraday(this.id)"></td>
-          <td><input type="text" style="width: 65px;" id="Target6"></td>
-          <td><input type="text" style="width: 65px;" id="SL6"></td>
-          <td><input type="text" style="width: 65px;" id="Brokerage6"></td>
-          <td><input type="text" style="width: 65px;" id="Breakeven6"></td>
-          <td><input type="text" style="width: 65px;" id="script6"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="qty6" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="Buy6" onchange="CalculateIntraday(this.id)"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="Target6"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="SL6"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="Brokerage6"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="Breakeven6"></td>
+          <td><input type="text" style="width: 65px;padding: 4px;" id="script6"></td>
         </tr> -->
     </table>
 
-    <h3>Swing: Profit Calculator</h3>
-    <table style="width: 35%;">
+    <h3>Swing: Calculator</h3>
+    <table style="width: 32%;">
       <tr style="background-color:#f09e89;">
         <td>✘</td>
         <td>Qty</td>
         <td>Buy @</td>
-        <td>Sell@<input type="text" style="width: 20px;" id="tgtPercentDelivery" onchange="ChangeTargetIntraDayDelivery()" value="10">% </td>
-        <td>Sell@<input type="text" style="width: 20px;" id="slPercentDelivery" onchange="ChangeTargetIntraDayDelivery()" value="14">%</td>
+        <td>Sell <input type="text" style="width: 18px;font-size: 14px;" id="tgtPercentDelivery" onchange="ChangeTargetIntraDayDelivery()" value="10">% </td>
+        <!-- <td>Sell@<input type="text" style="width: 20px;" id="slPercentDelivery" onchange="ChangeTargetIntraDayDelivery()" value="14">%</td> -->
+        <td>Profit</td>
         <td>Brokerage</td>
         <td>Breakeven</td>
-        <td>Script</td>
+        <td style="text-align: center;">Script</td>
       </tr>
       <tr>
         <td id="row7" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
-        <td><input type="text" style="width: 45px;" id="qty7" onchange="CalculateDelivery(this.id)"></td>
-        <td><input type="text" style="width: 45px;" id="Buy7" onchange="CalculateDelivery(this.id)"></td>
-        <td><input type="text" style="width: 65px;" id="Target7"></td>
-        <td><input type="text" style="width: 65px;" id="SL7"></td>
-        <td><input type="text" style="width: 65px;" id="Brokerage7"></td>
-        <td><input type="text" style="width: 65px;" id="Breakeven7"></td>
-        <td><input type="text" style="width: 65px;" id="script7"></td>
+        <td><input type="text" style="width: 35px;padding: 4px;" id="qty7" onchange="CalculateDelivery(this.id)"></td>
+        <td><input type="text" style="width: 55px;padding: 4px;" id="Buy7" onchange="CalculateDelivery(this.id)"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Target7"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Profit7"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Brokerage7"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Breakeven7"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="script7"></td>
       </tr>
       <tr>
         <td id="row8" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
-        <td><input type="text" style="width: 45px;" id="qty8" onchange="CalculateDelivery(this.id)"></td>
-        <td><input type="text" style="width: 45px;" id="Buy8" onchange="CalculateDelivery(this.id)"></td>
-        <td><input type="text" style="width: 65px;" id="Target8"></td>
-        <td><input type="text" style="width: 65px;" id="SL8"></td>
-        <td><input type="text" style="width: 65px;" id="Brokerage8"></td>
-        <td><input type="text" style="width: 65px;" id="Breakeven8"></td>
-        <td><input type="text" style="width: 65px;" id="script8"></td>
+        <td><input type="text" style="width: 35px;padding: 4px;" id="qty8" onchange="CalculateDelivery(this.id)"></td>
+        <td><input type="text" style="width: 55px;padding: 4px;" id="Buy8" onchange="CalculateDelivery(this.id)"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Target8"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Profit8"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Brokerage8"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Breakeven8"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="script8"></td>
       </tr>
     </table>
 
