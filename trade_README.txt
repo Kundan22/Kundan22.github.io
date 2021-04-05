@@ -1,0 +1,1 @@
+Use trade_raw_javascript.js for writing script then use https://obfuscator.io/ to Obfuscate the source code and replace in main file
