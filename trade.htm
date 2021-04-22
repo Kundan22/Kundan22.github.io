@@ -2,8 +2,6 @@
 <html>
 <head>
  
-
-
 <style>
 table {
   font-family: 'Verdana';
@@ -29,23 +27,22 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-
 tr:nth-child(odd) {
   background-color: #dddddd;
 }
-
 
 </style>
 
 </head>
 <body>
-    <h3>Intraday: Calculator</h3>
+    <h3>Intraday: Long Position Calculator</h3>
+    
     <table style="width: 32%;">
         <tr style="background-color:#9fb9ee;">
           <td>✘</td>
           <td>Qty</td>
           <td>Price</td>
-          <td>Sell <input type="text" style="width: 18px;font-size: 14px;" id="tgtPercent" onchange="ChangeTargetIntraDay()" value="2">% </td>
+          <td>Sell <input type="text" style="width: 18px;font-size: 14px;" id="tgtPercent" onchange="ChangeTargetIntraDay()" value="1">% </td>
           <td>SL <input type="text" style="width: 18px;font-size: 14px;" id="slPercent" onchange="ChangeTargetIntraDay()" value="1">%</td>
           <td>Brokerage</td>
           <td>Breakeven</td>
@@ -113,6 +110,62 @@ tr:nth-child(odd) {
         </tr> -->
     </table>
 
+    <h3>Intraday: Short Position Calculator</h3>
+    <table style="width: 32%;">
+      <tr style="background-color:#9fb9ee;">
+        <td>✘</td>
+        <td>Qty</td>
+        <td>Price</td>
+        <td>Buy <input type="text" style="width: 18px;font-size: 14px;" id="tgtShortPercent" onchange="ChangeTargetIntraDay()" value="-1">% </td>
+        <td>SL <input type="text" style="width: 18px;font-size: 14px;" id="slShortPercent" onchange="ChangeTargetIntraDay()" value="-1">%</td>
+        <td>Brokerage</td>
+        <td>Breakeven</td>
+        <td style="text-align: center;">Script</td>
+      </tr>
+      <tr>
+        <td id="row1" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
+        <td><input type="text" style="width: 35px;padding: 4px;" id="qty5" onchange="CalculateIntraday(this.id)"></td>
+        <td><input type="text" style="width: 55px;padding: 4px;" id="Buy5" onchange="CalculateIntraday(this.id)"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Target5"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="SL5"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Brokerage5"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Breakeven5"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="script5"></td>
+      </tr>
+      <tr>
+        <td id="row2" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
+        <td><input type="text" style="width: 35px;padding: 4px;" id="qty6" onchange="CalculateIntraday(this.id)"></td>
+        <td><input type="text" style="width: 55px;padding: 4px;" id="Buy6" onchange="CalculateIntraday(this.id)"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Target6"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="SL6"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Brokerage6"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Breakeven6"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="script6"></td>
+      </tr>
+      <tr>
+        <td id="row3" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
+        <td><input type="text" style="width: 35px;padding: 4px;" id="qty7" onchange="CalculateIntraday(this.id)"></td>
+        <td><input type="text" style="width: 55px;padding: 4px;" id="Buy7" onchange="CalculateIntraday(this.id)"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Target7"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="SL7"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Brokerage7"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Breakeven7"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="script7"></td>
+      </tr>
+      <tr>
+        <td id="row4" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
+        <td><input type="text" style="width: 35px;padding: 4px;" id="qty8" onchange="CalculateIntraday(this.id)"></td>
+        <td><input type="text" style="width: 55px;padding: 4px;" id="Buy8" onchange="CalculateIntraday(this.id)"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Target8"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="SL8"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Brokerage8"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Breakeven8"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="script8"></td>
+      </tr>
+     
+  </table>
+
+
     <h3>Swing: Calculator</h3>
     <table style="width: 32%;">
       <tr style="background-color:#f09e89;">
@@ -128,30 +181,36 @@ tr:nth-child(odd) {
       </tr>
       <tr>
         <td id="row7" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
-        <td><input type="text" style="width: 35px;padding: 4px;" id="qty7" onchange="CalculateDelivery(this.id)"></td>
-        <td><input type="text" style="width: 55px;padding: 4px;" id="Buy7" onchange="CalculateDelivery(this.id)"></td>
-        <td><input type="text" style="width: 65px;padding: 4px;" id="Target7"></td>
-        <td><input type="text" style="width: 65px;padding: 4px;" id="Profit7"></td>
-        <td><input type="text" style="width: 65px;padding: 4px;" id="Brokerage7"></td>
-        <td><input type="text" style="width: 65px;padding: 4px;" id="Breakeven7"></td>
-        <td><input type="text" style="width: 65px;padding: 4px;" id="script7"></td>
+        <td><input type="text" style="width: 35px;padding: 4px;" id="qty9" onchange="CalculateDelivery(this.id)"></td>
+        <td><input type="text" style="width: 55px;padding: 4px;" id="Buy9" onchange="CalculateDelivery(this.id)"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Target9"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Profit9"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Brokerage9"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Breakeven9"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="script9"></td>
       </tr>
       <tr>
         <td id="row8" style="cursor:pointer;" onclick="ClearValues(this.id)">✘</td>
-        <td><input type="text" style="width: 35px;padding: 4px;" id="qty8" onchange="CalculateDelivery(this.id)"></td>
-        <td><input type="text" style="width: 55px;padding: 4px;" id="Buy8" onchange="CalculateDelivery(this.id)"></td>
-        <td><input type="text" style="width: 65px;padding: 4px;" id="Target8"></td>
-        <td><input type="text" style="width: 65px;padding: 4px;" id="Profit8"></td>
-        <td><input type="text" style="width: 65px;padding: 4px;" id="Brokerage8"></td>
-        <td><input type="text" style="width: 65px;padding: 4px;" id="Breakeven8"></td>
-        <td><input type="text" style="width: 65px;padding: 4px;" id="script8"></td>
+        <td><input type="text" style="width: 35px;padding: 4px;" id="qty10" onchange="CalculateDelivery(this.id)"></td>
+        <td><input type="text" style="width: 55px;padding: 4px;" id="Buy10" onchange="CalculateDelivery(this.id)"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Target10"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Profit10"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Brokerage10"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="Breakeven10"></td>
+        <td><input type="text" style="width: 65px;padding: 4px;" id="script10"></td>
       </tr>
     </table>
 
 <br/>
-
+<span style="font-family:Calibri;font-size:18px" >
+With 500 Quantity<br/>
+&nbsp;&nbsp;Price &lt; 500 = Min 1<br/>
+&nbsp;&nbsp;Price &gt; 500 and Price &lt; 1000 = Min 1.5<br/>
+&nbsp;&nbsp;Price &gt; 1000 = Min 2<br/>
+&nbsp;&nbsp;Price &gt; 1200 = Min 3<br/>
+</span>
 <script>
-var _0x2607=['replace','1iNTSQv','888843VWmmaj','6343BGLFDk','toFixed','value','qty','slPercent','tgtPercentDelivery','970671GAFnbN','Target','118BgQcHN','Buy','Profit','getElementById','min','1291513maUOBm','4279zbsozs','471mDZoPt','tgtPercent','283BJFXPn','Breakeven','1jZQmjh','1139799vziYdZ','11507OFxCZm','Brokerage'];var _0x530d=function(_0x2697db,_0x49d297){_0x2697db=_0x2697db-0xc3;var _0x26070f=_0x2607[_0x2697db];return _0x26070f;};(function(_0x4b84dc,_0x38bca0){var _0x20cc16=_0x530d;while(!![]){try{var _0x43df33=parseInt(_0x20cc16(0xd0))*-parseInt(_0x20cc16(0xc3))+-parseInt(_0x20cc16(0xd4))+-parseInt(_0x20cc16(0xcc))*-parseInt(_0x20cc16(0xc9))+-parseInt(_0x20cc16(0xdb))*parseInt(_0x20cc16(0xd3))+parseInt(_0x20cc16(0xcf))+parseInt(_0x20cc16(0xce))*-parseInt(_0x20cc16(0xc8))+-parseInt(_0x20cc16(0xca))*-parseInt(_0x20cc16(0xd5));if(_0x43df33===_0x38bca0)break;else _0x4b84dc['push'](_0x4b84dc['shift']());}catch(_0x4323ba){_0x4b84dc['push'](_0x4b84dc['shift']());}}}(_0x2607,0xca810));function CalculateIntraday(_0x465978){var _0x29f71e=_0x530d;debugger;rowNumber=getRowNumber(_0x465978),document[_0x29f71e(0xc6)](_0x29f71e(0xc4)+rowNumber)[_0x29f71e(0xd7)]=document['getElementById'](_0x29f71e(0xc4)+rowNumber)[_0x29f71e(0xd7)][_0x29f71e(0xd2)](',',''),buyPrice=parseFloat(document[_0x29f71e(0xc6)]('Buy'+rowNumber)[_0x29f71e(0xd7)]),purchaseQty=parseFloat(document['getElementById'](_0x29f71e(0xd8)+rowNumber)[_0x29f71e(0xd7)]),targetPercent=document[_0x29f71e(0xc6)](_0x29f71e(0xcb))['value'],stopLossPercent=document[_0x29f71e(0xc6)](_0x29f71e(0xd9))[_0x29f71e(0xd7)],target=buyPrice+buyPrice*(targetPercent/0x64),stopLoss=buyPrice-buyPrice*(stopLossPercent/0x64),sellPrice=target,document[_0x29f71e(0xc6)](_0x29f71e(0xdc)+rowNumber)[_0x29f71e(0xd7)]=target[_0x29f71e(0xd6)](0x2),document[_0x29f71e(0xc6)]('SL'+rowNumber)[_0x29f71e(0xd7)]=stopLoss[_0x29f71e(0xd6)](0x2),turnOver=(buyPrice+sellPrice)*purchaseQty,brokerage=Math[_0x29f71e(0xc7)](turnOver*0.0003,0x28),STT=sellPrice*purchaseQty*0.00025,tranCharges=turnOver*0.0000345,sebiCharges=turnOver*5e-7,GST=(brokerage+tranCharges)*0.18,stampDuty=turnOver*0.000015,totalCharges=parseFloat(brokerage)+Math['round'](parseFloat(STT))+parseFloat(tranCharges)+parseFloat(sebiCharges)+parseFloat(GST)+parseFloat(stampDuty),document[_0x29f71e(0xc6)](_0x29f71e(0xd1)+rowNumber)['value']=totalCharges[_0x29f71e(0xd6)](0x2),breakEven=(buyPrice*purchaseQty+totalCharges)/purchaseQty,document['getElementById'](_0x29f71e(0xcd)+rowNumber)['value']=breakEven['toFixed'](0x2);}function CalculateDelivery(_0x39c7f8){var _0x5e93fd=_0x530d;debugger;rowNumber=getRowNumber(_0x39c7f8),document[_0x5e93fd(0xc6)](_0x5e93fd(0xc4)+rowNumber)[_0x5e93fd(0xd7)]=document[_0x5e93fd(0xc6)]('Buy'+rowNumber)['value'][_0x5e93fd(0xd2)](',',''),buyPrice=parseFloat(document[_0x5e93fd(0xc6)](_0x5e93fd(0xc4)+rowNumber)['value']),purchaseQty=parseFloat(document[_0x5e93fd(0xc6)](_0x5e93fd(0xd8)+rowNumber)[_0x5e93fd(0xd7)]),targetPercent=document[_0x5e93fd(0xc6)](_0x5e93fd(0xda))[_0x5e93fd(0xd7)],target=buyPrice+buyPrice*(targetPercent/0x64),sellPrice=target,profit=(target[_0x5e93fd(0xd6)](0x2)-buyPrice['toFixed'](0x2))*purchaseQty,turnOver=(buyPrice+sellPrice)*purchaseQty,turnOver=turnOver[_0x5e93fd(0xd6)](0x2),brokerage=0x0,STT=parseFloat(turnOver*0.001),tranCharges=parseFloat(turnOver*0.0000345),sebiCharges=parseFloat(turnOver*5e-7),GST=parseFloat((brokerage+tranCharges)*0.18),stampDuty=parseFloat(buyPrice*purchaseQty*0.00015);var _0x40b115=parseFloat(brokerage)+Math['round'](parseFloat(STT))+parseFloat(tranCharges)+parseFloat(sebiCharges)+parseFloat(GST)+parseFloat(stampDuty);document[_0x5e93fd(0xc6)](_0x5e93fd(0xd1)+rowNumber)['value']=_0x40b115[_0x5e93fd(0xd6)](0x2),breakEven=(buyPrice*purchaseQty+_0x40b115)/purchaseQty,document[_0x5e93fd(0xc6)](_0x5e93fd(0xcd)+rowNumber)['value']=breakEven[_0x5e93fd(0xd6)](0x2),document['getElementById'](_0x5e93fd(0xdc)+rowNumber)[_0x5e93fd(0xd7)]=target['toFixed'](0x2),document[_0x5e93fd(0xc6)](_0x5e93fd(0xc5)+rowNumber)[_0x5e93fd(0xd7)]=(profit-_0x40b115)[_0x5e93fd(0xd6)](0x2);}function getRowNumber(_0x5b9784){var _0x4b0165=/\d+/;return _0x5b9784['match'](_0x4b0165);}function ChangeTargetIntraDay(){var _0x148bac=_0x530d;for(rowCount=0x1;rowCount<=0x4;rowCount++){if(document[_0x148bac(0xc6)](_0x148bac(0xd8)+rowCount)[_0x148bac(0xd7)]!='')CalculateIntraday(_0x148bac(0xd8)+rowCount);}}function ChangeTargetIntraDayDelivery(){var _0x49834c=_0x530d;for(rowCount=0x7;rowCount<=0x8;rowCount++){if(document['getElementById']('qty'+rowCount)[_0x49834c(0xd7)]!='')CalculateDelivery(_0x49834c(0xd8)+rowCount);}}function ClearValues(_0x3ae447){var _0x5c1f76=_0x530d;rowNumber=getRowNumber(_0x3ae447),document['getElementById'](_0x5c1f76(0xd8)+rowNumber)[_0x5c1f76(0xd7)]='',document['getElementById'](_0x5c1f76(0xc4)+rowNumber)[_0x5c1f76(0xd7)]='',document[_0x5c1f76(0xc6)](_0x5c1f76(0xdc)+rowNumber)['value']='',document[_0x5c1f76(0xc6)]('SL'+rowNumber)[_0x5c1f76(0xd7)]='',document[_0x5c1f76(0xc6)](_0x5c1f76(0xd1)+rowNumber)[_0x5c1f76(0xd7)]='',document[_0x5c1f76(0xc6)]('Breakeven'+rowNumber)[_0x5c1f76(0xd7)]='',document['getElementById']('script'+rowNumber)[_0x5c1f76(0xd7)]='';}
+var _0x1c27=['1286635LqhtCF','Buy','802897gQTOEq','tgtPercentDelivery','289262yKtteJ','replace','getElementById','value','Target','Brokerage','toFixed','1rkvINt','match','round','tgtPercent','script','qty','388094AzJXjX','tgtShortPercent','Breakeven','1506268NzEntj','1602575kojazI','2WzRcBW','1841881fCLzXg'];(function(_0x51bb2d,_0x25971b){var _0x22e527=_0x1b96;while(!![]){try{var _0x2dd42c=-parseInt(_0x22e527(0x175))+parseInt(_0x22e527(0x178))+parseInt(_0x22e527(0x164))+parseInt(_0x22e527(0x174))+-parseInt(_0x22e527(0x176))*-parseInt(_0x22e527(0x162))+-parseInt(_0x22e527(0x171))*parseInt(_0x22e527(0x16b))+-parseInt(_0x22e527(0x177));if(_0x2dd42c===_0x25971b)break;else _0x51bb2d['push'](_0x51bb2d['shift']());}catch(_0x52e3de){_0x51bb2d['push'](_0x51bb2d['shift']());}}}(_0x1c27,0xd0d71));function CalculateIntraday(_0x565d06){var _0x350062=_0x1b96;debugger;rowNumber=getRowNumber(_0x565d06),document[_0x350062(0x166)](_0x350062(0x179)+rowNumber)['value']=document['getElementById'](_0x350062(0x179)+rowNumber)['value'][_0x350062(0x165)](',',''),buyPrice=parseFloat(document['getElementById']('Buy'+rowNumber)[_0x350062(0x167)]),purchaseQty=parseFloat(document[_0x350062(0x166)]('qty'+rowNumber)[_0x350062(0x167)]),rowNumber<=0x4?(targetPercent=document[_0x350062(0x166)](_0x350062(0x16e))[_0x350062(0x167)],stopLossPercent=document[_0x350062(0x166)]('slPercent')['value']):(targetPercent=document['getElementById']('tgtShortPercent')[_0x350062(0x167)],stopLossPercent=document[_0x350062(0x166)](_0x350062(0x172))[_0x350062(0x167)]),target=buyPrice+buyPrice*(targetPercent/0x64),stopLoss=buyPrice-buyPrice*(stopLossPercent/0x64),sellPrice=target,document['getElementById']('Target'+rowNumber)['value']=target[_0x350062(0x16a)](0x2),document[_0x350062(0x166)]('SL'+rowNumber)['value']=stopLoss[_0x350062(0x16a)](0x2),turnOver=(buyPrice+sellPrice)*purchaseQty,brokerage=Math['min'](turnOver*0.0003,0x28),STT=sellPrice*purchaseQty*0.00025,tranCharges=turnOver*0.0000345,sebiCharges=turnOver*5e-7,GST=(brokerage+tranCharges)*0.18,stampDuty=turnOver*0.000015,totalCharges=parseFloat(brokerage)+Math['round'](parseFloat(STT))+parseFloat(tranCharges)+parseFloat(sebiCharges)+parseFloat(GST)+parseFloat(stampDuty),document[_0x350062(0x166)]('Brokerage'+rowNumber)[_0x350062(0x167)]=totalCharges['toFixed'](0x2),breakEven=(buyPrice*purchaseQty+totalCharges)/purchaseQty,document['getElementById'](_0x350062(0x173)+rowNumber)[_0x350062(0x167)]=breakEven['toFixed'](0x2);}function _0x1b96(_0x3efd23,_0x113765){_0x3efd23=_0x3efd23-0x162;var _0x1c27c2=_0x1c27[_0x3efd23];return _0x1c27c2;}function CalculateDelivery(_0x3b1724){var _0x5acfed=_0x1b96;debugger;rowNumber=getRowNumber(_0x3b1724),document[_0x5acfed(0x166)]('Buy'+rowNumber)['value']=document[_0x5acfed(0x166)](_0x5acfed(0x179)+rowNumber)[_0x5acfed(0x167)][_0x5acfed(0x165)](',',''),buyPrice=parseFloat(document[_0x5acfed(0x166)](_0x5acfed(0x179)+rowNumber)[_0x5acfed(0x167)]),purchaseQty=parseFloat(document[_0x5acfed(0x166)](_0x5acfed(0x170)+rowNumber)['value']),targetPercent=document[_0x5acfed(0x166)](_0x5acfed(0x163))[_0x5acfed(0x167)],target=buyPrice+buyPrice*(targetPercent/0x64),sellPrice=target,profit=(target[_0x5acfed(0x16a)](0x2)-buyPrice[_0x5acfed(0x16a)](0x2))*purchaseQty,turnOver=(buyPrice+sellPrice)*purchaseQty,turnOver=turnOver[_0x5acfed(0x16a)](0x2),brokerage=0x0,STT=parseFloat(turnOver*0.001),tranCharges=parseFloat(turnOver*0.0000345),sebiCharges=parseFloat(turnOver*5e-7),GST=parseFloat((brokerage+tranCharges)*0.18),stampDuty=parseFloat(buyPrice*purchaseQty*0.00015);var _0x58b8e4=parseFloat(brokerage)+Math[_0x5acfed(0x16d)](parseFloat(STT))+parseFloat(tranCharges)+parseFloat(sebiCharges)+parseFloat(GST)+parseFloat(stampDuty);document[_0x5acfed(0x166)](_0x5acfed(0x169)+rowNumber)[_0x5acfed(0x167)]=_0x58b8e4['toFixed'](0x2),breakEven=(buyPrice*purchaseQty+_0x58b8e4)/purchaseQty,document['getElementById']('Breakeven'+rowNumber)['value']=breakEven[_0x5acfed(0x16a)](0x2),document[_0x5acfed(0x166)](_0x5acfed(0x168)+rowNumber)[_0x5acfed(0x167)]=target[_0x5acfed(0x16a)](0x2),document[_0x5acfed(0x166)]('Profit'+rowNumber)[_0x5acfed(0x167)]=(profit-_0x58b8e4)[_0x5acfed(0x16a)](0x2);}function getRowNumber(_0x294d11){var _0x19c8c9=_0x1b96,_0xd6ac15=/\d+/;return _0x294d11[_0x19c8c9(0x16c)](_0xd6ac15);}function ChangeTargetIntraDay(){var _0x49bbf4=_0x1b96;debugger;for(rowCount=0x1;rowCount<=0x8;rowCount++){if(document[_0x49bbf4(0x166)](_0x49bbf4(0x170)+rowCount)[_0x49bbf4(0x167)]!='')CalculateIntraday(_0x49bbf4(0x170)+rowCount);}}function ChangeTargetIntraDayDelivery(){var _0x45ca5b=_0x1b96;for(rowCount=0x9;rowCount<=0xa;rowCount++){if(document[_0x45ca5b(0x166)]('qty'+rowCount)[_0x45ca5b(0x167)]!='')CalculateDelivery(_0x45ca5b(0x170)+rowCount);}}function ClearValues(_0x2f6b54){var _0x5de68d=_0x1b96;rowNumber=getRowNumber(_0x2f6b54),document[_0x5de68d(0x166)]('qty'+rowNumber)[_0x5de68d(0x167)]='',document[_0x5de68d(0x166)](_0x5de68d(0x179)+rowNumber)[_0x5de68d(0x167)]='',document['getElementById'](_0x5de68d(0x168)+rowNumber)[_0x5de68d(0x167)]='',document['getElementById']('SL'+rowNumber)[_0x5de68d(0x167)]='',document['getElementById'](_0x5de68d(0x169)+rowNumber)[_0x5de68d(0x167)]='',document[_0x5de68d(0x166)](_0x5de68d(0x173)+rowNumber)[_0x5de68d(0x167)]='',document[_0x5de68d(0x166)](_0x5de68d(0x16f)+rowNumber)[_0x5de68d(0x167)]='';}
 </script>
 </body>
 </html>

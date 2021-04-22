@@ -5,9 +5,17 @@ function CalculateIntraday(controlID) {
  
     buyPrice = parseFloat(document.getElementById("Buy"+rowNumber).value)
     purchaseQty =  parseFloat(document.getElementById("qty"+rowNumber).value)
-    targetPercent = document.getElementById("tgtPercent").value
-    stopLossPercent = document.getElementById("slPercent").value
- 
+
+    if(rowNumber <=4){
+        targetPercent = document.getElementById("tgtPercent").value
+        stopLossPercent = document.getElementById("slPercent").value
+    }
+    else{
+        targetPercent = document.getElementById("tgtShortPercent").value
+        stopLossPercent = document.getElementById("tgtShortPercent").value
+    }
+
+
     target = buyPrice + (buyPrice * (targetPercent/100))
     stopLoss = buyPrice - (buyPrice * (stopLossPercent/100))
     sellPrice = target
@@ -77,8 +85,8 @@ function CalculateIntraday(controlID) {
  
  function ChangeTargetIntraDay()
  {
-     //debugger;
-     for (rowCount = 1; rowCount <= 4; rowCount++) {
+     debugger;
+     for (rowCount = 1; rowCount <= 8; rowCount++) {
          if(document.getElementById("qty"+rowCount).value != "")
             CalculateIntraday("qty"+rowCount);
      }
@@ -87,7 +95,7 @@ function CalculateIntraday(controlID) {
  function ChangeTargetIntraDayDelivery()
  {
      //debugger;
-     for (rowCount = 7; rowCount <= 8; rowCount++) {
+     for (rowCount = 9; rowCount <= 10; rowCount++) {
          if(document.getElementById("qty"+rowCount).value != "")
          CalculateDelivery("qty"+rowCount);
      }
